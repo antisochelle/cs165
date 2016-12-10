@@ -1,37 +1,53 @@
+<!DOCTYPE html>
 <html>
-<head>
-<title>...</title>
-<style type=”text/css”>
-table {
-margin: 8px;
-}
 
-th {
-font-family: Arial, Helvetica, sans-serif;
-font-size: .7em;
-background: #666;
-color: #FFF;
-padding: 2px 6px;
-border-collapse: separate;
-border: 1px solid #000;
-}
+<title>CS 165 APP</title>
 
-td {
-font-family: Arial, Helvetica, sans-serif;
-font-size: .7em;
-border: 1px solid #DDD;
-}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style type="text/css">
+	body {font-family: "Montserrat", sans-serif;}
+
+	.top {
+		background: black;
+		color: white;
+		max-height: 70px;
+		padding-left: 50px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		margin-bottom: 100px;
+		display: block;
+	}
+
+	.logo {
+		font-size: 25px;
+		color: white;
+		text-decoration: none;
+		margin: auto;
+	}
+
+
+	.mainbody {
+		margin-left: 50px;
+		margin-top: 100px;
+	}
+
 </style>
-</head>
+
 <body>
-<?php
-echo "<table>";
-echo "<tr><th>ID</th><th>hashtag</th></tr>";
-while($row = mysql_fetch_row($result))
-{
-echo "<tr onmouseover=\"hilite(this)\" onmouseout=\"lowlite(this)\"><td>$row[0]</td>                <td>$row[1]</td></tr>\n";
-}
-echo "</table>";
-?>
+	
+	<!--HEADER-->
+	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
+		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
+	</div>
+
+	<!--BODY-->
+	<div class="mainbody">
+		<p><?php echo "Hello world!" ?></p>
+	</div>
+
 </body>
+
 </html>
