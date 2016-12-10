@@ -79,7 +79,8 @@
 
 	<!--BODY-->
 	<div class="mainbody">
-		<p></p><?php echo "Hello world!" ?></p>
+		<p><?php echo "Hello world!" ?></p>
+		<p>Enter login credentials!</p>
 	</div>
 
 </body>
