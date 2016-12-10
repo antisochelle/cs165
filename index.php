@@ -24,7 +24,7 @@ border: 1px solid #DDD;
 </style>
 </head>
 <body>
-<?php>
+<?php
 echo "<table>";
 echo "<tr><th>ID</th><th>hashtag</th></tr>";
 while($row = mysql_fetch_row($result))
