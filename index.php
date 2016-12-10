@@ -79,7 +79,7 @@
 
 	<!--BODY-->
 	<div class="mainbody">
-		<p>Hello world!</p>
+		<p></p><?php echo="Hello world!" ?></p>
 	</div>
 
 </body>
