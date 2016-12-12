@@ -1,7 +1,3 @@
-/* Create the database delarosa */
-CREATE DATABASE delarosa;
-\c delarosa
-
 /* Drop existing tables, just to be sure */
 DROP TABLE Users;
 DROP TABLE Products;
