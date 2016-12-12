@@ -17,10 +17,10 @@ SAMPLE USERS, PASSWORDS:
 *********************************/
 
 /* Users */
-INSERT INTO Users (userID, userPass, userName, userAddress, userType) VALUES ('admin','e0zgt1l4aS/Zk','Administrator','Metro Manila','admin');
-INSERT INTO Users (userID, userPass, userName, userAddress, userType) VALUES ('user1','7Hz2HJSCW65AI','User1','Quezon City','regular');
-INSERT INTO Users (userID, userPass, userName, userAddress, userType) VALUES ('user2','NeM//a51Jof1w','User2','Fairview','regular');
-INSERT INTO Users (userID, userPass, userName, userAddress, userType) VALUES ('user3','weBW9PPKWKeJE','User3','Caloocan City','regular');
+INSERT INTO Users (userID, userPass, userName, userAddress, userType) VALUES ('admin','1234','Administrator','Metro Manila','admin');
+INSERT INTO Users (userID, userPass, userName, userAddress, userType) VALUES ('user1','pass1','User1','Quezon City','regular');
+INSERT INTO Users (userID, userPass, userName, userAddress, userType) VALUES ('user2','pass2','User2','Fairview','regular');
+INSERT INTO Users (userID, userPass, userName, userAddress, userType) VALUES ('user3','pass3','User3','Caloocan City','regular');
 
 /* Products */
 INSERT INTO Products (productNumber, productName, productDescription, productStatus, productQuantity, productPrice) VALUES (1,'Sticker1','Very cute sticker 2x2 waterproof','Available',20,10.00);
