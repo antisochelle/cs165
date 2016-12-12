@@ -1,6 +1,3 @@
-/* Connect to database delarosa */
-\c delarosa
-
 /* Load records into the tables */
 copy users FROM 'Users.csv' with delimiter as ',' csv;
 copy products FROM 'Products.csv' with delimiter as ',' csv;
