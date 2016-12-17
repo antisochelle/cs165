@@ -85,7 +85,7 @@
 			$succes = '/index.php';
 		} 
 		else {
-			echo "<p>PWE</p>";
+			echo "<p class=\"mainbody\">PWE</p>";
 			$userID = test_input($_POST['userID']);
 		  	$userPass =test_input($_POST['userPassword']);
 		  	
