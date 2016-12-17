@@ -114,9 +114,9 @@
 			  		$success = "error.php";
 			  		echo "<p>wala kadito mamshie</p>";
 			  	} else {
+			  		echo "<p>MAMSHIE I FOUND YOU</p>";
+			  		$success = "login.php";
 			  		while ($row = pg_fetch_row($getUser)){
-				  		$success = "login.php";
-				  		echo "<p>MAMSHIE I FOUND YOU</p>";
 				  		$userID = $row[0];
 				  		$userPass = "HEHEHE SECRET";
 			  		}
