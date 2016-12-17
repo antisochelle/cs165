@@ -60,8 +60,6 @@
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
 		
-		<p class="login">Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
-		
 		<form action="index.php" method="post">
     		<button class="submit" type="submit" style="margin-right: 50px;">LOG OUT</button>
 		</form>
