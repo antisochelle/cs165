@@ -75,6 +75,43 @@
 		$pg_conn = pg_connect(pg_connection_string_from_database_url());
 	?>
 
+	<?php
+		# Define variables for userID and userPass for checking if valid
+		$userID = $userPass = $success = $row = "";
+	
+		#Checking if given empty login input
+		if (empty($_POST['userID'])) {
+			$success = "error.php";
+			echo "<p>NO INPUT WTF</p>";
+		} 
+		else {
+			echo "<p>PWE</p>";
+			$userID = test_input($_POST['userID']);
+		  	$userPass =test_input($_POST['userPassword']);
+		  	
+		  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'");
+		  	if ($row = pg_fetch_row($getUser) == 0){
+		  		$success = "error.php";
+		  		echo "<p>wala kadito mamshie</p>";
+		  	} else {
+		  		echo "<p>MAMSHIE I FOUND YOU</p>";
+		  		$success = "login.php";
+		  		while ($row = pg_fetch_row($getUser)){
+			  		$userID = $row[0];
+			  		$userPass = "HEHEHE SECRET";
+		  		}
+		  	}
+		}
+		
+		function test_input($data) {
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
+		}
+	?>
+
+
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
@@ -96,39 +133,6 @@
 		<p>Enter login credentials!</p>
 	
 		<?php
-			# Define variables for userID and userPass for checking if valid
-			$userID = $userPass = $success = $row = "";
-		
-			#Checking if given empty login input
-			if (empty($_POST['userID'])) {
-				$success = "error.php";
-				echo "<p>NO INPUT WTF</p>";
-			} 
-			else {
-				echo "<p>PWE</p>";
-				$userID = test_input($_POST['userID']);
-			  	$userPass =test_input($_POST['userPassword']);
-			  	
-			  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'");
-			  	if ($row = pg_fetch_row($getUser) == 0){
-			  		$success = "error.php";
-			  		echo "<p>wala kadito mamshie</p>";
-			  	} else {
-			  		echo "<p>MAMSHIE I FOUND YOU</p>";
-			  		$success = "login.php";
-			  		while ($row = pg_fetch_row($getUser)){
-				  		$userID = $row[0];
-				  		$userPass = "HEHEHE SECRET";
-			  		}
-			  	}
-			}
-			
-			function test_input($data) {
-				$data = trim($data);
-				$data = stripslashes($data);
-				$data = htmlspecialchars($data);
-				return $data;
-			}
 			
 			echo "<p>ID: ",$userID,", Password: ",$userPass,"</p>";
 			echo "<p>success: ",$success,"</p>";
