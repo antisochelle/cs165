@@ -73,14 +73,13 @@
 		
 		# Establish connection
 		$pg_conn = pg_connect(pg_connection_string_from_database_url());
-		
 	?>
 
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
 		
-		<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?> method="post" class="textbox" style="margin-right: 30px;">
+		<form action=<?php echo $success; ?> method="post" class="textbox" style="margin-right: 30px;">
     		<button class="submit" type="submit" formaction="signup.php">SIGN UP</button>
     		<input class="submit" type="submit" value="Shop Now" style="margin-right: 10px;">
     		<input class="textbox" type="password" name="userPassword" placeholder="Password">
@@ -98,6 +97,7 @@
 	
 		<?php
 			# Define variables for userID and userPass for checking if valid
+			$userID = $userPass = $success = "";
 		
 			#Checking if given empty login input
 			if (empty($_POST['userID'])) {
@@ -108,6 +108,13 @@
 				echo "<p>PWE</p>";
 				$userID = test_input($_POST['userID']);
 			  	$userPass =test_input($_POST['userPassword']);
+			  	
+			  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'");
+			  	if (!$getUser){
+			  		$success = "error.php";
+			  	} else {
+			  		$success = "login.php";
+			  	}
 			}
 			
 			function test_input($data) {
