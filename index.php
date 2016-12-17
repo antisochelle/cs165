@@ -83,16 +83,17 @@
 		    $success = "error.php";
 		  } else {
 
-		  	# Check if userID and userPass is found in DB
-		  	$userID = $_POST['userID'];
-		  	$userPass = $_POST['userPassword'];
-
-		  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID=".$userID."' AND userPass='".$userPass."'");
-		  	if (!getUser){
-		  		$success = "error.php";
-		  	} else {
-		  		$success = "login.php";
-		  	}
+			  	# Check if userID and userPass is found in DB
+			  	$userID = $_POST['userID'];
+			  	$userPass = $_POST['userPassword'];
+	
+			  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'");
+			  	if (!getUser){
+			  		$success = "error.php";
+			  	} else {
+			  		$success = "login.php";
+			  	}
+		  }
 		}
 	?>
 	
