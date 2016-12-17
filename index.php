@@ -110,12 +110,14 @@
 			  	$userPass =test_input($_POST['userPassword']);
 			  	
 			  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'");
-			  	if (!$getUser){
+			  	if ($row = pg_fetch_row($getUser) == 0){
 			  		$success = "error.php";
 			  		echo "<p>wala kadito mamshie</p>";
 			  	} else {
 			  		$success = "login.php";
 			  		echo "<p>MAMSHIE I FOUND YOU</p>";
+			  		$userID = $row[0];
+			  		$userPass = "HEHEHE SECRET";
 			  	}
 			}
 			
