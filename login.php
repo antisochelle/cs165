@@ -35,13 +35,6 @@
 		float: right;
 	}
 
-	.textbox {
-		font-family: "Raleway", sans-serif;
-		margin-right: 10px;
-		margin-top: 3px;
-		float: right;
-	}
-
 	.submit {
 		font-family: "Montserrat", sans-serif;
 		font-size: 15px;
@@ -69,14 +62,14 @@
 		
 		<p class="login" style="margin-right: 50px;">Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
 		
+		<button class="submit" type="submit" formaction="index.php">LOG OUT</button>
+		
 	</div>
 
 	<!--BODY-->
 	<div class="mainbody">
 		Hi <?php echo htmlspecialchars($_POST['userID']); ?>.
 		Your password is <?php echo $_POST['userPassword']; ?>. Nako.
-
-        <p>Welcome.</p>
 
 		<p><a href="index.php">Go back</a></p>
 
