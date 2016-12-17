@@ -73,7 +73,10 @@
 		
 		# Establish connection
 		$pg_conn = pg_connect(pg_connection_string_from_database_url());
-
+		
+	?>
+	
+	<?php
 		# Define variables for userID and userPass for checking if valid
 		$userID = $userPass = $success = "";
 
@@ -88,7 +91,7 @@
 			  	$userPass = $_POST['userPassword'];
 	
 			  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'");
-			  	if (!getUser){
+			  	if (!$getUser){
 			  		$success = "error.php";
 			  	} else {
 			  		$success = "login.php";
