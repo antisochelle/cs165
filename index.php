@@ -114,11 +114,15 @@
 			  		$success = "error.php";
 			  		echo "<p>wala kadito mamshie</p>";
 			  	} else {
-			  		$row = pg_fetch_row($getUser);
-			  		$success = "login.php";
-			  		echo "<p>MAMSHIE I FOUND YOU</p>";
-			  		#$userID = $row[0];
-			  		$userPass = "HEHEHE SECRET";
+			  		while ($row = pg_fetch_row($getUser)){
+				  		$success = "login.php";
+				  		echo "<p>MAMSHIE I FOUND YOU</p>";
+				  		$userID = $row[0];
+				  		$userPass = "HEHEHE SECRET";
+				  		
+				  		print ("$row[0]");
+				  		print ("$userID");
+			  		}
 			  	}
 			}
 			
@@ -129,7 +133,7 @@
 				return $data;
 			}
 			
-			echo "<p>ID: ",$row[0],", Password: ",$userPass,"</p>";
+			echo "<p>ID: ",,", Password: ",$userPass,"</p>";
 		?>
 
 	</div>
