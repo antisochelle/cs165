@@ -122,7 +122,8 @@
 	
 		<?php
 			$m = "LOL";
-			echo "<p>ID: ",$m,", Password: ",$userPass,"</p>";
+			$wtf = htmlspecialchars($_POST['userPassword']);
+			echo "<p>ID: ",$m,", Password: ",$wtf,"</p>";
 		?>
 
 	</div>
