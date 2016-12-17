@@ -43,7 +43,11 @@
 		margin-left: 50px;
 		margin-top: 100px;
 	}
-
+	
+	th, td {
+    	padding: 10px;
+	}
+	
 </style>
 
 <body>
@@ -109,19 +113,21 @@
 				<th>In Stock</th>
 			</tr>
 		
-			<?php
-				#Get list of products from Products
-				$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
-				while ($row = pg_fetch_row($products)){
-					print "<tr>";
-					print ("<td>$row[0]</td>");
-					print ("<td>$row[1]</td>");
-					print ("<td>$row[2]</td>");
-					print ("<td>$row[3]</td>");
-					print ("<td>$row[4]</td>");
-					print "</tr>\n";
-				}
-			?>
+			<?php		
+			#Get list of products from Products
+			$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
+			while ($row = pg_fetch_row($products)){ ?>
+			
+				<tr>
+					<td><?php print ("$row[0]"); ?></td>
+					<td><?php print ("$row[1]"); ?></td>
+					<td><?php print ("$row[2]"); ?></td>
+					<td><?php print ("$row[3]"); ?></td>
+					<td><?php print ("$row[4]"); ?></td>
+				</tr>
+			
+			<?php } ?>
+
 		</table>
 		
 	</div>
