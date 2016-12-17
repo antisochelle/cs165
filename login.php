@@ -95,11 +95,34 @@
 		print "<p> Users in your database:</p>\n";
 		print "<ul>";
 		while ($row = pg_fetch_row($userID)){
-			print("<li>$row[userID]</li>");
+			print("<li>$row[0]</li>");
 		}
 		print "</ul>";
+		
+		#Get list of products from Products
+		print("<table>\n
+			<tr>\n
+				<th>Product Name</th> \n
+				<th>Description</th> \n
+				<th>Price</th> \n
+				<th>Status</th> \n
+				<th>In Stock</th> \n
+			</tr>\n");
+		
+		$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
+		while ($row = pg_fetch_row($products)){
+			print "<tr>";
+			print ("<td>$row[0]</td>");
+			print ("<td>$row[1]</td>");
+			print ("<td>$row[2]</td>");
+			print ("<td>$row[3]</td>");
+			print ("<td>$row[4]</td>");
+			print "</tr>\n";
+		}
+		
+		print("</table>\n");
 		?>
-        
+		
 	</div>
 
 </body>
