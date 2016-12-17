@@ -69,7 +69,7 @@
             <button type="submit" formaction="cart.php">View My Cart</button> 
         </form>
         
-        <?php
+        <p style="font-family: Montserrat;"><?php
 		# This function reads your DATABASE_URL config var and returns a connection
 		# string suitable for pg_connect. Put this in your app.
 		function pg_connection_string_from_database_url() {
@@ -88,7 +88,7 @@
 		  while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
 		}
 		print "\n";
-		?>
+		?></p>
         
 	</div>
 
