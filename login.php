@@ -76,7 +76,7 @@
 		Hi <?php echo htmlspecialchars($_POST['userID']); ?>.
 		Your password is <?php echo $_POST['userPassword']; ?>. Nako.
 
-        <p>Welcome.</p>
+        <p style="margin-right: 100px;">Welcome.</p>
 
 		<p><a href="index.php">Go back</a></p>
 
