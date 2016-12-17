@@ -65,7 +65,7 @@
 		
 		<form action="editProfile.php" method="post">
             <button type="submit">Edit Profile</button>
-            <button type="submit" formaction="login.php">Edit Profile</button> 
+            <button type="submit" formaction="login.php">Back</button> 
         </form>
 	</div>
 
