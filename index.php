@@ -97,7 +97,7 @@
 	
 		<?php
 			# Define variables for userID and userPass for checking if valid
-			$userID = $userPass = $success = "";
+			$userID = $userPass = $success = $row = "";
 		
 			#Checking if given empty login input
 			if (empty($_POST['userID'])) {
