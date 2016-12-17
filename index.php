@@ -112,8 +112,10 @@
 			  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'");
 			  	if (!$getUser){
 			  		$success = "error.php";
+			  		echo "<p>wala kadito mamshie</p>";
 			  	} else {
 			  		$success = "login.php";
+			  		echo "<p>MAMSHIE I FOUND YOU</p>";
 			  	}
 			}
 			
