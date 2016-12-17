@@ -97,8 +97,7 @@
 		
 			<?php		
 			#Get list of products from Products
-			$product = "Sticker1";
-			$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products WHERE productName='".$product."'");
+			$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
 			while ($row = pg_fetch_row($products)){ ?>
 			
 				<tr>
