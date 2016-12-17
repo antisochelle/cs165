@@ -76,6 +76,30 @@
 		
 	?>
 
+	
+	<?php
+		# Define variables for userID and userPass for checking if valid
+		$userID = $userPass = $success = "";
+
+		# Checking if given empty login input
+		
+		if (empty($_POST["name"])) {
+		$success = "error.php";
+		} else {
+		
+		  	# Check if userID and userPass is found in DB
+		  	$userID = test_input($_POST['userID']);
+		  	$userPass =test_input-input($_POST['userPassword']);
+		}
+		
+		function test_input($data) {
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
+		}
+	?>
+
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
@@ -91,34 +115,9 @@
 		
 	</div>
 
-	
-	<?php
-		# Define variables for userID and userPass for checking if valid
-		$userID = $userPass = $success = "";
-
-		# Checking if given empty login input
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		  if (empty($_POST["name"])) {
-		    $success = "error.php";
-		  } else {
-
-			  	# Check if userID and userPass is found in DB
-			  	$userID = $_POST['userID'];
-			  	$userPass = $_POST['userPassword'];
-	
-			  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'");
-			  	if (!$getUser){
-			  		$success = "error.php";
-			  	} else {
-			  		$success = "login.php";
-			  	}
-		  }
-		}
-	?>
-
 	<!--BODY-->
 	<div class="mainbody">
-		<p><?php echo "Hello BESHIE!" ?></p>
+		<p>Hello BESHIE!</p>
 		<p>Enter login credentials!</p>
 	
 		<?php
