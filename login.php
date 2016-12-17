@@ -38,7 +38,6 @@
 		min-width: 50px;
 		border: 0;
 		float: right;
-		margin-top: 7px;
 	}
 
 	.mainbody {
