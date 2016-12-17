@@ -67,7 +67,7 @@
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
 		
-		<p class="login" style="margin-right: 100px;">Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
+		<p class="login" style="margin-right: 50px;">Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
 		
 	</div>
 
