@@ -81,11 +81,11 @@
 	<!--BODY-->
 	<div class="mainbody">
 		Hi <?php echo htmlspecialchars($_POST['userID']); ?>.
-		Your password is <?php echo (int)$_POST['userPassword']; ?> years old.
+		Your password is <?php echo (int)$_POST['userPassword']; ?>. Nako.
 
         <p>Welcome.</p>
 
-		<p><a href="/sample.html">Go back</a></p>
+		<p><a href="index.php">Go back</a></p>
 
 
 	</div>
