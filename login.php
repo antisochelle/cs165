@@ -43,6 +43,10 @@
 		margin-left: 50px;
 		margin-top: 100px;
 	}
+	
+	th, td {
+		padding = 10px;
+	}
 
 </style>
 
