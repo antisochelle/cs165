@@ -76,33 +76,6 @@
 		
 	?>
 
-	
-	<?php
-		# Define variables for userID and userPass for checking if valid
-		$userID = "EH";
-		$userPass = "MEH";
-		$success = "";
-
-		# Checking if given empty login input
-		
-		#if (empty($_POST["name"])) {
-		#$success = "error.php";
-		#} 
-		#else {
-		
-		  	# Check if userID and userPass is found in DB#
-#		  	$userID = test_input($_POST['userID']);
-#		  	$userPass =test_input($_POST['userPassword']);
-#		}
-		
-		function test_input($data) {
-			$data = trim($data);
-			$data = stripslashes($data);
-			$data = htmlspecialchars($data);
-			return $data;
-		}
-	?>
-
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
@@ -124,8 +97,26 @@
 		<p>Enter login credentials!</p>
 	
 		<?php
-			$userID = test_input($_POST['userID']);
-			$userPass = test_input($_POST['userPassword']);
+			# Define variables for userID and userPass for checking if valid
+			$userID = $userPass = $success = "";
+		
+			#Checking if given empty login input
+			if (empty($_POST["name"])) {
+				$success = "error.php";
+			} 
+			else {
+		  		#Check if userID and userPass is found in DB
+			  	$userID = test_input($_POST['userID']);
+			  	$userPass =test_input($_POST['userPassword']);
+			}
+			
+			function test_input($data) {
+				$data = trim($data);
+				$data = stripslashes($data);
+				$data = htmlspecialchars($data);
+				return $data;
+			}
+			
 			echo "<p>ID: ",$userID,", Password: ",$userPass,"</p>";
 		?>
 
