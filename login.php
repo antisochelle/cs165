@@ -89,6 +89,15 @@
 		  while ($row = pg_fetch_row($result)) { print("<li>$row[0]</li>\n"); }
 		}
 		print "</ul>\n";
+		
+		# Get list of userID
+		$userID = pg_query($pg_conn, "SELECT userID FROM Users");
+		print "<p> Users in your database:</p>\n";
+		print "<ul>";
+		while ($row = pg_fetch_row($userID)){
+			print("<li>$row</li>");
+		}
+		print "</ul>";
 		?>
         
 	</div>
