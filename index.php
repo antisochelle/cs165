@@ -91,18 +91,7 @@
 		
 	</div>
 
-	<!--BODY-->
-	<div class="mainbody">
-		<p><?php echo "Hello BESHIE!" ?></p>
-		<p>Enter login credentials!</p>
 	
-		<?php
-			echo "<p>ID: ",$userID,", Password: ",$userPass,"</p>";
-		?>
-
-	</div>
-	
-		
 	<?php
 		# Define variables for userID and userPass for checking if valid
 		$userID = $userPass = $success = "";
@@ -126,6 +115,17 @@
 		  }
 		}
 	?>
+
+	<!--BODY-->
+	<div class="mainbody">
+		<p><?php echo "Hello BESHIE!" ?></p>
+		<p>Enter login credentials!</p>
+	
+		<?php
+			echo "<p>ID: ",$userID,", Password: ",$userPass,"</p>";
+		?>
+
+	</div>
 	
 </body>
 
