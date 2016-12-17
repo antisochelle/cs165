@@ -114,6 +114,7 @@
 			  		$success = "error.php";
 			  		echo "<p>wala kadito mamshie</p>";
 			  	} else {
+			  		$row = pg_fetch_row($getUser);
 			  		$success = "login.php";
 			  		echo "<p>MAMSHIE I FOUND YOU</p>";
 			  		$userID = $row[0];
