@@ -62,12 +62,45 @@
 </style>
 
 <body>
+
+	<?php
+		# This function reads your DATABASE_URL config var and returns a connection
+		# string suitable for pg_connect. Put this in your app.
+		function pg_connection_string_from_database_url() {
+		  extract(parse_url($_ENV["DATABASE_URL"]));
+		  return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
+		}
+		
+		# Establish connection
+		$pg_conn = pg_connect(pg_connection_string_from_database_url());
+
+		# Define variables for userID and userPass for checking if valid
+		$userID = $userPass = $success = "";
+
+		# Checking if given empty login input
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		  if (empty($_POST["name"])) {
+		    $success = "error.php";
+		  } else {
+
+		  	# Check if userID and userPass is found in DB
+		  	$userID = $_POST['userID'];
+		  	$userPass = $_POST['userPassword'];
+
+		  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID=".$userID."' AND userPass='".$userPass."'");
+		  	if (!getUser){
+		  		$success = "error.php";
+		  	} else {
+		  		$success = "login.php";
+		  	}
+		}
+	?>
 	
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
 		
-		<form action="login.php" method="post" class="textbox" style="margin-right: 30px;">
+		<form action="<?php echo $success ?>" method="post" class="textbox" style="margin-right: 30px;">
     		<button class="submit" type="submit" formaction="signup.php">SIGN UP</button>
     		<input class="submit" type="submit" value="Shop Now" style="margin-right: 10px;">
     		<input class="textbox" type="password" name="userPassword" placeholder="Password">
