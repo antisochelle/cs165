@@ -118,7 +118,8 @@
 		<p>Enter login credentials!</p>
 	
 		<?php
-			echo "<p>ID: ",$userID,", Password: ",$userPass,"</p>";
+			$m = "LOL";
+			echo "<p>ID: ",$m,", Password: ",$userPass,"</p>";
 		?>
 
 	</div>
