@@ -64,6 +64,7 @@
 <body>
 	
 	<!--CONNECTION TO PHP???????-->
+	<?php
 	$dbopts = parse_url(getenv('DATABASE_URL'));
 	$app->register(new Herrera\Pdo\PdoServiceProvider(),
        array(
@@ -72,6 +73,7 @@
            'pdo.password' => $dbopts["pass"]
        )
 	);
+	?>
 	
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
