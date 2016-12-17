@@ -116,8 +116,12 @@
 	<div class="mainbody">
 		<p><?php echo "Hello BESHIE!" ?></p>
 		<p>Enter login credentials!</p>
-		
-		
+	
+		<?php
+			echo $userID;
+			echo $userPass;
+		?>
+
 	</div>
 
 </body>
