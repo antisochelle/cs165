@@ -63,7 +63,7 @@
 		<p>Name: </p>
 		<p>Address: </p><br>
 		
-		<form action="editProfile.php" method="post">
+		<form action="editProfile.php" method="get">
             <button type="submit">Edit Profile</button>
             <button type="submit" formaction="login.php">Back</button> 
         </form>

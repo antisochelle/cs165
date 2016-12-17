@@ -59,9 +59,11 @@
 
 	<!--BODY-->
 	<div class="mainbody">
-		Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>! <br>
-		
+	    
 		<form action="profile.php" method="post">
+		    
+		    Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>! <br>
+		    
             <button type="submit">View Profile</button>
             <button type="submit" formaction="cart.php">View Order History</button>
             <button type="submit" formaction="cart.php">View My Cart</button> 
