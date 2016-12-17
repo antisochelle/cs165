@@ -43,10 +43,6 @@
 		margin-left: 50px;
 		margin-top: 100px;
 	}
-	
-	th, td {
-		padding = 10px;
-	}
 
 </style>
 
@@ -74,58 +70,59 @@
         </form>
         
         <?php
-		# This function reads your DATABASE_URL config var and returns a connection
-		# string suitable for pg_connect. Put this in your app.
-		function pg_connection_string_from_database_url() {
-		  extract(parse_url($_ENV["DATABASE_URL"]));
-		  return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
-		}
-		# Here we establish the connection. Yes, that's all.
-		$pg_conn = pg_connect(pg_connection_string_from_database_url());
-		# Now let's use the connection for something silly just to prove it works:
-		$result = pg_query($pg_conn, "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'");
-		print "\n";
-		if (!pg_num_rows($result)) {
-		  print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
-		} else {
-		  print "<p>Tables in your database:</p>\n";
-		  print "<ul>\n";
-		  while ($row = pg_fetch_row($result)) { print("<li>$row[0]</li>\n"); }
-		}
-		print "</ul>\n";
-		
-		# Get list of userID
-		$userID = pg_query($pg_conn, "SELECT userID FROM Users");
-		print "<p> Users in your database:</p>\n";
-		print "<ul>";
-		while ($row = pg_fetch_row($userID)){
-			print("<li>$row[0]</li>");
-		}
-		print "</ul>";
-		
-		#Get list of products from Products
-		print("<table>\n
-			<tr>\n
-				<th>Product Name</th> \n
-				<th>Description</th> \n
-				<th>Price</th> \n
-				<th>Status</th> \n
-				<th>In Stock</th> \n
-			</tr>\n");
-		
-		$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
-		while ($row = pg_fetch_row($products)){
-			print "<tr>";
-			print ("<td>$row[0]</td>");
-			print ("<td>$row[1]</td>");
-			print ("<td>$row[2]</td>");
-			print ("<td>$row[3]</td>");
-			print ("<td>$row[4]</td>");
-			print "</tr>\n";
-		}
-		
-		print("</table>\n");
+			# This function reads your DATABASE_URL config var and returns a connection
+			# string suitable for pg_connect. Put this in your app.
+			function pg_connection_string_from_database_url() {
+			  extract(parse_url($_ENV["DATABASE_URL"]));
+			  return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
+			}
+			# Here we establish the connection. Yes, that's all.
+			$pg_conn = pg_connect(pg_connection_string_from_database_url());
+			# Now let's use the connection for something silly just to prove it works:
+			$result = pg_query($pg_conn, "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'");
+			print "\n";
+			if (!pg_num_rows($result)) {
+			  print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
+			} else {
+			  print "<p>Tables in your database:</p>\n";
+			  print "<ul>\n";
+			  while ($row = pg_fetch_row($result)) { print("<li>$row[0]</li>\n"); }
+			}
+			print "</ul>\n";
+			
+			# Get list of userID
+			$userID = pg_query($pg_conn, "SELECT userID FROM Users");
+			print "<p> Users in your database:</p>\n";
+			print "<ul>";
+			while ($row = pg_fetch_row($userID)){
+				print("<li>$row[0]</li>");
+			}
+			print "</ul>";
 		?>
+		
+		<table>
+			<tr>
+				<th>Product Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Status</th>
+				<th>In Stock</th>
+			</tr>
+		
+			<?php
+				#Get list of products from Products
+				$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
+				while ($row = pg_fetch_row($products)){
+					print "<tr>";
+					print ("<td>$row[0]</td>");
+					print ("<td>$row[1]</td>");
+					print ("<td>$row[2]</td>");
+					print ("<td>$row[3]</td>");
+					print ("<td>$row[4]</td>");
+					print "</tr>\n";
+				}
+			?>
+		</table>
 		
 	</div>
 
