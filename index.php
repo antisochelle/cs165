@@ -117,7 +117,7 @@
 			  		$row = pg_fetch_row($getUser);
 			  		$success = "login.php";
 			  		echo "<p>MAMSHIE I FOUND YOU</p>";
-			  		$userID = $row[0];
+			  		#$userID = $row[0];
 			  		$userPass = "HEHEHE SECRET";
 			  	}
 			}
@@ -129,7 +129,7 @@
 				return $data;
 			}
 			
-			echo "<p>ID: ",$userID,", Password: ",$userPass,"</p>";
+			echo "<p>ID: ",$row[0],", Password: ",$userPass,"</p>";
 		?>
 
 	</div>
