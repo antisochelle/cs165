@@ -81,7 +81,7 @@
 	<!--BODY-->
 	<div class="mainbody">
 		Hi <?php echo htmlspecialchars($_POST['userID']); ?>.
-		Your password is <?php echo (int)$_POST['userPassword']; ?>. Nako.
+		Your password is <?php echo $_POST['userPassword']; ?>. Nako.
 
         <p>Welcome.</p>
 
