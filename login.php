@@ -18,7 +18,6 @@
 		padding-top: 20px;
 		padding-right: 50px;
 		padding-bottom: 20px;
-		margin-bottom: 100px;
 		display: block;
 	}
 
