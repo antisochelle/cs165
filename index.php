@@ -122,7 +122,7 @@
 	
 		<?php
 			$m = "LOL";
-			$wtf = htmlspecialchars($_POST['userPassword']);
+			$wtf = $_POST['userPassword'];
 			echo "<p>ID: ",$m,", Password: ",$wtf,"</p>";
 		?>
 
