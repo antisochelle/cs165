@@ -16,6 +16,7 @@
 		max-height: 70px;
 		padding-left: 50px;
 		padding-top: 20px;
+		padding-right: 50px;
 		padding-bottom: 20px;
 		margin-bottom: 100px;
 		display: block;
@@ -28,13 +29,6 @@
 		margin: auto;
 	}
 
-	.login {
-		margin-top: 7px;
-		margin-right: 100px;
-		margin-bottom: 0px;
-		float: right;
-	}
-
 	.submit {
 		font-family: "Montserrat", sans-serif;
 		font-size: 15px;
@@ -43,8 +37,8 @@
 		height: 21.5px;
 		min-width: 50px;
 		border: 0;
-		margin-top: 3px;
 		float: right;
+		margin: auto;
 	}
 
 	.mainbody {
@@ -59,11 +53,9 @@
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
-		
 		<form action="index.php" method="post">
-    		<button class="submit" type="submit" style="margin-right: 50px;">LOG OUT</button>
-		</form>
-		
+          <button class="submit" type="submit">LOG OUT</button>
+        </form>
 		
 	</div>
 
