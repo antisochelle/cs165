@@ -53,8 +53,8 @@
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
-		<form action="index.php" method="post">
-          <button class="submit" type="submit">LOG OUT</button>
+		<form action="index.php" method="post" class="submit">
+          <button type="submit">LOG OUT</button>
         </form>
 		
 	</div>
