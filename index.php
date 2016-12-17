@@ -81,7 +81,6 @@
 	
 		#Checking if given empty login input
 		if (empty($_POST['userID'])) {
-			$success = "error.php";
 			echo "<p>NO INPUT WTF</p>";
 		} 
 		else {
