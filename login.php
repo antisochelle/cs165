@@ -30,7 +30,7 @@
 
 	.login {
 		margin-top: 7px;
-		margin-right: 30px;
+		margin-right: 100px;
 		margin-bottom: 0px;
 		float: right;
 	}
@@ -62,8 +62,8 @@
 		
 		<p class="login">Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
 		
-		<form action="index.php" method="post" style="margin-right: 50px;">
-    		<button class="submit" type="submit">LOG OUT</button>
+		<form action="index.php" method="post">
+    		<button class="submit" type="submit" style="margin-right: 50px;">LOG OUT</button>
 		</form>
 		
 		
@@ -73,9 +73,6 @@
 	<div class="mainbody">
 		Hi <?php echo htmlspecialchars($_POST['userID']); ?>.
 		Your password is <?php echo $_POST['userPassword']; ?>. Nako.
-
-
-
 	</div>
 
 </body>
