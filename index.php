@@ -133,7 +133,7 @@
 				return $data;
 			}
 			
-			echo "<p>ID: ",,", Password: ",$userPass,"</p>";
+			echo "<p>ID: ",$userID,", Password: ",$userPass,"</p>";
 		?>
 
 	</div>
