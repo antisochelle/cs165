@@ -91,7 +91,7 @@
 		  	
 		  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'");
 		  	if ($row = pg_fetch_row($getUser) == 0){
-		  		$success = "error.php";
+		  		$success = "/index.php";
 		  		echo "<p class=\"mainbody\">wala kadito mamshie</p>";
 		  	} else {
 		  		echo "<p class=\"mainbody\">MAMSHIE I FOUND YOU</p>";
