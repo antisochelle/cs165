@@ -92,9 +92,9 @@
 		  	$getUser = pg_query($pg_conn, "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'");
 		  	if ($row = pg_fetch_row($getUser) == 0){
 		  		$success = "error.php";
-		  		echo "<p>wala kadito mamshie</p>";
+		  		echo "<p class=\"mainbody\">wala kadito mamshie</p>";
 		  	} else {
-		  		echo "<p>MAMSHIE I FOUND YOU</p>";
+		  		echo "<p class=\"mainbody\">MAMSHIE I FOUND YOU</p>";
 		  		$success = "login.php";
 		  		while ($row = pg_fetch_row($getUser)){
 			  		$userID = $row[0];
