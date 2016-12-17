@@ -95,7 +95,7 @@
 		print "<p> Users in your database:</p>\n";
 		print "<ul>";
 		while ($row = pg_fetch_row($userID)){
-			print("<li>$row[userID]</li>");
+			print("<li>$row[0]</li>");
 		}
 		print "</ul>";
 		?>
