@@ -75,7 +75,34 @@
 		$pg_conn = pg_connect(pg_connection_string_from_database_url());
 		
 	?>
+
+	<!--HEADER-->
+	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
+		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
+		
+		<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?> method="post" class="textbox" style="margin-right: 30px;">
+    		<button class="submit" type="submit" formaction="signup.php">SIGN UP</button>
+    		<input class="submit" type="submit" value="Shop Now" style="margin-right: 10px;">
+    		<input class="textbox" type="password" name="userPassword" placeholder="Password">
+    		<input class="textbox" type="text" name="userID" placeholder="Username" maxlength="50">
+		</form>
+		
+		<p class="login">Login:</p>
+		
+	</div>
+
+	<!--BODY-->
+	<div class="mainbody">
+		<p><?php echo "Hello BESHIE!" ?></p>
+		<p>Enter login credentials!</p>
 	
+		<?php
+			echo "<p>ID: ",$userID,", Password: ",$userPass,"</p>";
+		?>
+
+	</div>
+	
+		
 	<?php
 		# Define variables for userID and userPass for checking if valid
 		$userID = $userPass = $success = "";
@@ -100,34 +127,6 @@
 		}
 	?>
 	
-	<!--HEADER-->
-	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
-		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
-		
-		<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?> method="post" class="textbox" style="margin-right: 30px;">
-    		<button class="submit" type="submit" formaction="signup.php">SIGN UP</button>
-    		<input class="submit" type="submit" value="Shop Now" style="margin-right: 10px;">
-    		<input class="textbox" type="password" name="userPassword" placeholder="Password">
-    		<input class="textbox" type="text" name="userID" placeholder="Username" maxlength="50">
-		</form>
-		
-		<p class="login">Login:</p>
-		
-	</div>
-
-	<!--BODY-->
-	<div class="mainbody">
-		<p><?php echo "Hello BESHIE!" ?></p>
-		<p>Enter login credentials!</p>
-	
-		<?php
-			$m = "LOL";
-			$wtf = $_POST['userPassword'];
-			echo "<p>ID: ",$m,", Password: ",$wtf,"</p>";
-		?>
-
-	</div>
-
 </body>
 
 </html>
