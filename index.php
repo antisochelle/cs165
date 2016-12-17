@@ -119,9 +119,6 @@
 				  		echo "<p>MAMSHIE I FOUND YOU</p>";
 				  		$userID = $row[0];
 				  		$userPass = "HEHEHE SECRET";
-				  		
-				  		print ("$row[0]");
-				  		print ("$userID");
 			  		}
 			  	}
 			}
@@ -134,6 +131,7 @@
 			}
 			
 			echo "<p>ID: ",$userID,", Password: ",$userPass,"</p>";
+			echo "<p>success: ",$success,"</p>";
 		?>
 
 	</div>
