@@ -98,15 +98,15 @@
 	
 		<?php
 			# Define variables for userID and userPass for checking if valid
-			$userID = $userPass = $success = "";
 		
 			#Checking if given empty login input
-			if (empty($_POST["name"])) {
+			if (empty($_POST['userID'])) {
 				$success = "error.php";
+				echo "<p>NO INPUT WTF</p>";
 			} 
 			else {
-		  		#Check if userID and userPass is found in DB
-			  	$userID = test_input($_POST['userID']);
+				echo "<p>PWE</p>";
+				$userID = test_input($_POST['userID']);
 			  	$userPass =test_input($_POST['userPassword']);
 			}
 			
