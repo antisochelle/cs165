@@ -63,16 +63,7 @@
 
 	<!--BODY-->
 	<div class="mainbody">
-	    
-		<form action="profile.php" method="post">
-		    
-		    Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>! <br>
-		    
-            <button type="submit">View Profile</button>
-            <button type="submit" formaction="cart.php">View Order History</button>
-            <button type="submit" formaction="cart.php">View My Cart</button> 
-        </form>
-        
+		
         <?php
 			# This function reads your DATABASE_URL config var and returns a connection
 			# string suitable for pg_connect. Put this in your app.
@@ -84,9 +75,17 @@
 			# Establish connection
 			$pg_conn = pg_connect(pg_connection_string_from_database_url());
 		?>
+	    
+
+	    Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>! <br>
+		
+		<form action="cart.php" method="post">
+            <button type="submit" formaction="profile.php">View Profile</button>
+            <button type="submit">View Order History</button>
+            <button type="submit">View My Cart</button> 
+        </form>
 		
 		<br>
-		
 		<table>
 			<tr>
 				<th>Product Name</th>
