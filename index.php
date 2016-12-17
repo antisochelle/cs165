@@ -63,6 +63,16 @@
 
 <body>
 	
+	<!--CONNECTION TO PHP-->
+	$dbopts = parse_url(getenv('DATABASE_URL'));
+	$app->register(new Herrera\Pdo\PdoServiceProvider(),
+       array(
+           'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"] . ';port=' . $dbopts["port"],
+           'pdo.username' => $dbopts["user"],
+           'pdo.password' => $dbopts["pass"]
+       )
+	);
+	
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>

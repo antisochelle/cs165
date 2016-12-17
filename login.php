@@ -30,7 +30,7 @@
 
 	.login {
 		margin-top: 7px;
-		margin-right: 10px;
+		margin-right: 30px;
 		margin-bottom: 0px;
 		float: right;
 	}
@@ -60,11 +60,12 @@
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
 		
-		<form action="index.php" method="post" class="textbox" style="margin-right: 50px;">
+		<p class="login">Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
+		
+		<form action="index.php" method="post" style="margin-right: 50px;">
     		<button class="submit" type="submit">LOG OUT</button>
 		</form>
 		
-		<p class="login">Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
 		
 	</div>
 
