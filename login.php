@@ -67,7 +67,7 @@
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
 		
-		<p class="login">Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
+		<p class="login" style="margin-right: 100px;">Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
 		
 	</div>
 
@@ -76,7 +76,7 @@
 		Hi <?php echo htmlspecialchars($_POST['userID']); ?>.
 		Your password is <?php echo $_POST['userPassword']; ?>. Nako.
 
-        <p style="margin-right: 100px;">Welcome.</p>
+        <p>Welcome.</p>
 
 		<p><a href="index.php">Go back</a></p>
 
