@@ -124,6 +124,8 @@
 		<p>Enter login credentials!</p>
 	
 		<?php
+			$userID = test_input($_POST['userID']);
+			$userPass = test_input($POST['userPassword']);
 			echo "<p>ID: ",$userID,", Password: ",$userPass,"</p>";
 		?>
 
