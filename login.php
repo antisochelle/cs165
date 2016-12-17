@@ -67,14 +67,7 @@
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
 		
-		<form action="login.php" method="post" class="textbox" style="margin-right: 30px;">
-    		<button class="submit" type="submit" formaction="signup.php">SIGN UP</button>
-    		<input class="submit" type="submit" value="Shop Now" style="margin-right: 10px;">
-    		<input class="textbox" type="password" name="userPassword" placeholder="Password">
-    		<input class="textbox" type="text" name="userID" placeholder="Username" maxlength="50">
-		</form>
-		
-		<p class="login">Login:</p>
+		<p class="login">Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
 		
 	</div>
 
