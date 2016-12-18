@@ -1,3 +1,8 @@
+<?php
+	include("session.php");
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -55,7 +60,7 @@
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
 		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
-		<form action="index.php" method="post" class="submit" style="margin-top: 4px;">
+		<form action="logout.php" method="post" class="submit" style="margin-top: 4px;">
           <button type="submit" class="submit">LOG OUT</button>
         </form>
 		
@@ -63,21 +68,8 @@
 
 	<!--BODY-->
 	<div class="mainbody">
-		
-        <?php
-			# This function reads your DATABASE_URL config var and returns a connection
-			# string suitable for pg_connect. Put this in your app.
-			function pg_connection_string_from_database_url() {
-			  extract(parse_url($_ENV["DATABASE_URL"]));
-			  return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
-			}
-			
-			# Establish connection
-			$pg_conn = pg_connect(pg_connection_string_from_database_url());
-		?>
-	    
 
-	    Welcome, <?php echo htmlspecialchars($_POST['userID']); ?>! <br>
+	    Welcome, <?php echo $login_session; ?>! <br>
 		
 		<form action="cart.php" method="post">
             <button type="submit" formaction="profile.php">View Profile</button>
