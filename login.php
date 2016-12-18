@@ -142,7 +142,7 @@
 	
 		<hr>
 
-		<p style="margin-top: 10px;"><strong>Items in cart:</strong> <?php echo $_SESSION['itemCount']; ?></p>
+		<p style="margin-top: 10px;"><strong>Items in cart:</strong> <?php echo $itemCount ?></p>
 
 	</div>
 
