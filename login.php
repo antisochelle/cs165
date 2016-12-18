@@ -132,8 +132,10 @@
 				$itemCount = $_POST['quantity'];
 			}
 		?>
+	
+		<hr>
 
-		<p><strong>Items in cart:</strong> <?php echo $itemCount; ?></p>
+		<p style="margin-top: 10px;"><strong>Items in cart:</strong> <?php echo $itemCount; ?></p>
 
 	</div>
 
