@@ -1,6 +1,5 @@
 <?php
    include('config.php');
-   session_start();
    
    $user_check = $_SESSION['login_user'];
    
@@ -10,9 +9,8 @@
    
    $login_session = $row['userID'];
    
-   if(!isset($_SESSION['login_user'])){
-      header("location:index.php");
-   } #else {
-      #header("location:lol.php"); # Should go here if login_user is found! and may session
-   #}
+   if(isset($_SESSION['login_user'])){
+      echo $login_session;
+      #header("location:index.php");
+   } 
 ?>
