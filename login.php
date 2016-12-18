@@ -94,15 +94,8 @@
 				<th>Status</th>
 				<th>In Stock</th>
 			</tr>
-		
-				
+			
 			<?php
-			# Updating items in cart after clicking "Add to cart"
-			if ($_SERVER["REQUEST_METHOD"] == "POST"){
-				# Get quantity added to cart
-				$itemCount = $itemCount + test_input($_POST['quantity']);
-			}
-	
 			#Get list of products from Products
 			$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
 			while ($row = pg_fetch_row($products)){ ?>
@@ -130,6 +123,15 @@
 			<?php } ?>
 
 		</table>
+
+			
+		<?php
+			# Updating items in cart after clicking "Add to cart"
+			if ($_SERVER["REQUEST_METHOD"] == "POST"){
+				# Get quantity added to cart
+				$itemCount = $_POST['quantity'];
+			}
+		?>
 
 		<p style="float: right;">Items in cart: <?php echo $itemCount; ?></p>
 
