@@ -77,7 +77,7 @@
 			$userID = $_SESSION['login_user'];
 		?>
 
-	    <p>Welcome, <?php print_r($userID); ?> ! </p><br>
+	    <p>Welcome, <?php print_r($userID); ?>! </p><br>
 		
 		<form action="cart.php" method="post">
             <button type="submit" formaction="profile.php">View Profile</button>
@@ -95,11 +95,18 @@
 				<th>In Stock</th>
 			</tr>
 		
-			<?php		
+				
+			<?php
+			# Updating items in cart after clicking "Add to cart"
+			if ($_SERVER["REQUEST_METHOD"] == "POST"){
+				# Get quantity added to cart
+				$itemCount = $itemCount + test_input($_POST['quantity']);
+			}
+	
 			#Get list of products from Products
 			$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
 			while ($row = pg_fetch_row($products)){ ?>
-				<form method="post">
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				<tr>
 					<td><?php print ("$row[0]"); ?></td>
 					<td><?php print ("$row[1]"); ?></td>
@@ -123,7 +130,9 @@
 			<?php } ?>
 
 		</table>
-		
+
+		<p style="float: right;">Items in cart: <?php echo $itemCount; ?></p>
+
 	</div>
 
 </body>
