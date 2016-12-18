@@ -44,8 +44,8 @@
 		}
 		
 		# INSERTING INTO CARTS 
-		$query = "INSERT INTO Carts (cartNumber, userID) VALUES ($cartNum, '$userID');"
-			if (pg_query($pg_conn, $query)){
+		$query = "INSERT INTO Carts (cartNumber, userID) VALUES ($cartNum, '$userID');";
+		if (pg_query($pg_conn, $query)){
 			$cartSuccess = "Added order!";
 		} else {
 			$cartSuccess = "Error! Order not added!";
