@@ -26,11 +26,9 @@
 		} else {
 			$error = "<p>INVALID USERNAME OR PASSWORD BESHIE!</p>";
 		}
-		
 	}
 	
-	
-	
+	# Getting clean inputs
 	function test_input($data) {
 		$data = trim($data);
 		$data = stripslashes($data);

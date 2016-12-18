@@ -95,14 +95,26 @@
 			#Get list of products from Products
 			$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
 			while ($row = pg_fetch_row($products)){ ?>
-			
+				<form method="post">
 				<tr>
 					<td><?php print ("$row[0]"); ?></td>
 					<td><?php print ("$row[1]"); ?></td>
 					<td><?php print ("$row[2]"); ?></td>
 					<td><?php print ("$row[3]"); ?></td>
 					<td><?php print ("$row[4]"); ?></td>
+					
+					<?php
+						# Disable "Add to cart" feature if "out of stock"
+						$status = ""; 
+						if ($row[4] == 0){
+							$status = "disabled";
+						}
+					?>
+					
+					<input type="number" min="0" max=" <?php print ("$row[4]"); ?> " <?php echo $status; ?> >
+					<input type="submit" value="Add to cart" <?php echo $status; ?> >
 				</tr>
+				</form>
 			
 			<?php } ?>
 
