@@ -4,10 +4,10 @@
 	$userID = $_SESSION['login_user'];
 
 	# Get cartNumber
-	$query = "SELECT cartNumber FROM Carts WHERE userID='$userID';";
+	$query = "SELECT cartNumber FROM Carts WHERE userID='$userID'";
 	$result = pg_query($pg_conn, $query);
-	$row = pg_fetch_row($result);
-	$cartNumber = $row[0];
+	$arr = pg_fetch_array($result, NULL, PGSQL_ASSOC);
+	$cartNumber = $arr["cartNumber"];
 
 ?>
 
@@ -146,7 +146,7 @@
 		<hr>
 
 		<p style="margin-top: 10px;"><strong>Items in cart:</strong> <?php echo $itemCount ?></p>
-		<p><?php echo $cartNum ?></p>
+		<p>Cart number: <?php echo $cartNum ?></p>
 		<p>Product number: <?php echo $prodNum ?></p>
 
 	</div>
