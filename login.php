@@ -106,11 +106,11 @@
 			while ($row = pg_fetch_row($products)){ ?>
 				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				<tr>
-					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[1]."\">"; print ("$row[1]"); ?></td>
-					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[2]."\">"; print ("$row[2]"); ?></td>
-					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[3]."\">"; print ("$row[3]"); ?></td>
-					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[4]."\">"; print ("$row[4]"); ?></td>
-					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[5]."\">"; print ("$row[5]"); ?></td>
+					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[0]."\">"; print ("$row[1]"); ?></td>
+					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[0]."\">"; print ("$row[2]"); ?></td>
+					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[0]."\">"; print ("$row[3]"); ?></td>
+					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[0]."\">"; print ("$row[4]"); ?></td>
+					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[0]."\">"; print ("$row[5]"); ?></td>
 					
 					<?php
 						# Disable "Add to cart" feature if "out of stock"
@@ -146,6 +146,7 @@
 		<hr>
 
 		<p style="margin-top: 10px;"><strong>Items in cart:</strong> <?php echo $itemCount ?></p>
+		<p><?php echo $cartNum ?></p>
 		<p>Product number: <?php echo $prodNum ?></p>
 
 	</div>
