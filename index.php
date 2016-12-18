@@ -28,6 +28,12 @@
 		}
 	}
 	
+	# Get number of items in cart originally in DB
+	$query = "SELECT orderStatus FROM Orders WHERE orderStatus='NOT OK' AND cartNumber IN (SELECT cartNumber FROM Carts WHERE userID IN (SELECT userID FROM Users WHERE userID='$userID'));";
+	$result = pg_query($pg_conn, $query);
+	$row = pg_num_rows($result);
+	$_SESSION['itemCount'] = $row;
+
 	# Getting clean inputs
 	function test_input($data) {
 		$data = trim($data);
