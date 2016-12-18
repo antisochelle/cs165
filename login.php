@@ -99,7 +99,7 @@
 			#Get list of products from Products
 			$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
 			while ($row = pg_fetch_row($products)){ ?>
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				
 				<tr>
 					<td><?php print ("$row[0]"); ?></td>
 					<td><?php print ("$row[1]"); ?></td>
