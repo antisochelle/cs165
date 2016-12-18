@@ -12,6 +12,17 @@
 			$cartNum = $_SESSION['cartNumber'];
 		}
 	}
+	
+	# Updating items in cart after clicking "Add to cart"
+	if ($_SERVER["REQUEST_METHOD"] == "POST"){
+		# Get quantity added to cart
+		$itemCount = $_SESSION['itemCount'] + $_POST['quantity'];
+		$_SESSION['itemCount'] = $itemCount;
+		
+		# Get prodNum chosen
+		$_SESSION['prodNum'] = $_POST['prodNum'];
+		$prodNum = $_SESSION['prodNum'];
+	}
 
 ?>
 
@@ -134,18 +145,7 @@
 		</table>
 
 			
-		<?
-			# Updating items in cart after clicking "Add to cart"
-			if ($_SERVER["REQUEST_METHOD"] == "POST"){
-				# Get quantity added to cart
-				$itemCount = $_SESSION['itemCount'] + $_POST['quantity'];
-				$_SESSION['itemCount'] = $itemCount;
-				
-				# Get prodNum chosen
-				$_SESSION['prodNum'] = $_POST['prodNum'];
-				$prodNum = $_SESSION['prodNum'];
-			}
-		?>
+		<!-- PHP ADDING ITEMCOUNT -->
 	
 		<hr>
 
