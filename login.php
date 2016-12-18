@@ -1,6 +1,14 @@
 <?php
 	include("session.php");
 
+	$userID = $_SESSION['login_user'];
+
+	# Get cartNumber
+	$query = "SELECT cartNumber FROM Carts WHERE userID='$userID';";
+	$result = pg_query($pg_conn, $query);
+	$row = pg_fetch_row($result);
+	$cartNumber = $row[0];
+
 ?>
 
 <!DOCTYPE html>
@@ -73,10 +81,6 @@
 	<!--BODY-->
 	<div class="mainbody">
 
-		<?php
-			$userID = $_SESSION['login_user'];
-		?>
-
 	    <p>Welcome, <?php print_r($userID); ?>! </p><br>
 		
 		<form action="cart.php" method="post">
@@ -96,16 +100,17 @@
 			</tr>
 			
 			<?php
+			
 			#Get list of products from Products
-			$products = pg_query($pg_conn, "SELECT productName, productDescription, productPrice, productStatus, productQuantity FROM Products");
+			$products = pg_query($pg_conn, "SELECT * FROM Products");
 			while ($row = pg_fetch_row($products)){ ?>
 				
 				<tr>
-					<td><?php print ("$row[0]"); ?></td>
-					<td><?php print ("$row[1]"); ?></td>
-					<td><?php print ("$row[2]"); ?></td>
-					<td><?php print ("$row[3]"); ?></td>
-					<td><?php print ("$row[4]"); ?></td>
+					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[1]."\""; print ("$row[1]"); ?></td>
+					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[2]."\""; print ("$row[2]"); ?></td>
+					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[3]."\""; print ("$row[3]"); ?></td>
+					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[4]."\""; print ("$row[4]"); ?></td>
+					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[5]."\""; print ("$row[5]"); ?></td>
 					
 					<?php
 						# Disable "Add to cart" feature if "out of stock"
@@ -131,12 +136,17 @@
 				# Get quantity added to cart
 				$itemCount = $_SESSION['itemCount'] + $_POST['quantity'];
 				$_SESSION['itemCount'] = $itemCount;
+				
+				# Get prodNum chosen
+				$_SESSION['prodNum'] = $_POST['prodNum'];
+				$prodNum = $_SESSION['prodNum'];
 			}
 		?>
 	
 		<hr>
 
 		<p style="margin-top: 10px;"><strong>Items in cart:</strong> <?php echo $itemCount ?></p>
+		<p>Product number: <?php echo $prodNum ?></p>
 
 	</div>
 
