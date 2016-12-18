@@ -104,7 +104,7 @@
 			#Get list of products from Products
 			$products = pg_query($pg_conn, "SELECT * FROM Products");
 			while ($row = pg_fetch_row($products)){ ?>
-				
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				<tr>
 					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[1]."\">"; print ("$row[1]"); ?></td>
 					<td><?php echo "<input type=\"hidden\" name=\"prodNum\" value=\"".$row[2]."\">"; print ("$row[2]"); ?></td>
