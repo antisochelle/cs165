@@ -12,7 +12,7 @@
    
    if(!isset($_SESSION['login_user'])){
       header("location:index.php");
-   } else {
-      header("location:lol.php"); # Should go here if login_user is found! and may session
-   }
+   } #else {
+      #header("location:lol.php"); # Should go here if login_user is found! and may session
+   #}
 ?>
