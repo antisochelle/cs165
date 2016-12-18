@@ -129,7 +129,7 @@
 			# Updating items in cart after clicking "Add to cart"
 			if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				# Get quantity added to cart
-				$itemCount = $_POST['quantity'];
+				$itemCount = $itemCount + $_POST['quantity'];
 			}
 		?>
 	
