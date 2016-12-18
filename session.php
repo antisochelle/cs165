@@ -10,7 +10,7 @@
    
    $login_session = $row['userID'];
    
-   if(isset($_SESSION['login_user'])){
+   if(!isset($_SESSION['login_user'])){
       header("location:index.php");
-   } 
+   }
 ?>
