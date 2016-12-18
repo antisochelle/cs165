@@ -19,11 +19,12 @@
 		$count = pg_num_rows($getUser);
 		if ($count == 1){
 			$_SESSION['login_user'] = $userID;
+			$error = "<p>FOUND YOU MAMSHIE!</p>";
 			
 			# Create header to redirect if successful!
 			header("location:login.php");
 		} else {
-			$error = "<p>INVALID USERNAME OR PASSWORD BESHIE!<\p>\n";
+			$error = "<p>INVALID USERNAME OR PASSWORD BESHIE!</p>";
 		}
 		
 	}
