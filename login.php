@@ -111,8 +111,8 @@
 						}
 					?>
 					
-					<td><input type="number" name="quantity" min="0" max=" <?php print ("$row[4]"); ?> " <?php echo $status; ?> ></td>
-					<input type="submit" value="Add to cart" <?php echo $status; ?> >
+					<td><input type="number" name="quantity" min="0" max="<?php print ("$row[4]"); ?>" <?php echo $status; ?>></td>
+					<td><input type="submit" value="Add to cart" <?php echo $status; ?>></td>
 				</tr>
 				</form>
 			
