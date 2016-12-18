@@ -53,6 +53,10 @@
     	padding: 10px;
 	}
 	
+	input[type=number]{
+    	width: 60px;
+    }
+	
 </style>
 
 <body>
