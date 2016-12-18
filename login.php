@@ -6,8 +6,12 @@
 	# Get cartNumber
 	$query = "SELECT cartNumber FROM Carts WHERE userID='$userID'";
 	$result = pg_query($pg_conn, $query);
-	$arr = pg_fetch_array($result, NULL, PGSQL_ASSOC);
-	$cartNumber = $arr["cartNumber"];
+	if ($result){
+		while ($row = pg_fetch_row($result)){
+			$_SESSION['cartNumber'] = $row[0];
+			$cartNum = $_SESSION['cartNumber'];
+		}
+	}
 
 ?>
 
