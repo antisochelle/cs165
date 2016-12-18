@@ -135,15 +135,14 @@
 			# Updating items in cart after clicking "Add to cart"
 			if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				# Get quantity added to cart
-				$itemCount = $_SESSION['itemCount'];
-				$itemCount = $itemCount + $_POST['quantity'];
+				$itemCount = $_SESSION['itemCount'] + $_POST['quantity'];
 				$_SESSION['itemCount'] = $itemCount;
 			}
 		?>
 	
 		<hr>
 
-		<p style="margin-top: 10px;"><strong>Items in cart:</strong> <?php echo $itemCount; ?></p>
+		<p style="margin-top: 10px;"><strong>Items in cart:</strong> <?php echo $_SESSION['itemCount']; ?></p>
 
 	</div>
 
