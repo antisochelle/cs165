@@ -69,7 +69,11 @@
 	<!--BODY-->
 	<div class="mainbody">
 
-	    <p>Welcome, <?php print_r($_SESSION); ?> ! </p><br>
+		<?php
+			$userID = $_SESSION['login_user'];
+		?>
+
+	    <p>Welcome, <?php print_r($userID); ?> ! </p><br>
 		
 		<form action="cart.php" method="post">
             <button type="submit" formaction="profile.php">View Profile</button>
