@@ -1,3 +1,6 @@
+<?php
+    include("sessions.php");
+?>
 <html>
     <p>PEWPEWPEWPEW</p>
     <?php echo "<p>$user_check</p>"; ?>
