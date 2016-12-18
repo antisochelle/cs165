@@ -133,7 +133,7 @@
 			}
 		?>
 
-		<p style="float: right;">Items in cart: <?php echo $itemCount; ?></p>
+		<p><strong>Items in cart:</strong> <?php echo $itemCount; ?></p>
 
 	</div>
 
