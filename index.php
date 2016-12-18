@@ -12,7 +12,7 @@
 		$userPass = test_input($_POST['userPassword']);
 		
 		# Query if userID & userPass is in DB
-		$query = "SELECT userID, userPass FROM Users WHERE userID=".$userID."' AND userPass='".$userPass."'";
+		$query = "SELECT userID, userPass FROM Users WHERE userID='".$userID."' AND userPass='".$userPass."'";
 		$getUser = pg_query($pg_conn, $query);
 		
 		# Check if query returns a success
