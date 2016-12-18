@@ -13,15 +13,44 @@
 		}
 	}
 	
-	# Updating items in cart after clicking "Add to cart"
+	# Insert in cart after clicking "Add to cart"
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){
-		# Get quantity added to cart
+		
+		# Get quantity added to cart itemCount
 		$itemCount = $_SESSION['itemCount'] + $_POST['quantity'];
 		$_SESSION['itemCount'] = $itemCount;
 		
 		# Get prodNum chosen
 		$_SESSION['prodNum'] = $_POST['prodNum'];
 		$prodNum = $_SESSION['prodNum'];
+		
+		# Get orderNum
+		$query = "SELECT COUNT(*) FROM Orders";
+		$result = pg_query($pg_conn, $query);
+		while ($row = pg_fetch_row($result)){
+			$orderNum = $row[0];
+		}
+		$_SESSION['orderNum'] = $orderNum;
+		
+		# Set order details (orderNum, cartNum, prodNum, itemCount AS orderQuantity, orderStatus, orderDate -- do this directly in query using now())
+		$orderStatus = "NOT OK";
+		
+		# INSERTING INTO ORDERS
+		$query = "INSERT INTO Orders (orderNumber, cartNumber, productNumber, orderQuantity, orderStatus, orderDate) VALUES ($orderNum,$cartNum,$prodNum,$itemCount,'$orderStatus',now());";
+		if (pg_query($pg_conn, $query)){
+			$orderSuccess = "Added order!";
+		} else {
+			$orderSuccess = "Error! Order not added!";
+		}
+		
+		# INSERTING INTO CARTS 
+		$query = "INSERT INTO Carts (cartNumber, userID) VALUES ($cartNum, '$userID');"
+			if (pg_query($pg_conn, $query)){
+			$cartSuccess = "Added order!";
+		} else {
+			$cartSuccess = "Error! Order not added!";
+		}
+		
 	}
 
 ?>
@@ -152,6 +181,8 @@
 		<p style="margin-top: 10px;"><strong>Items in cart:</strong> <?php echo $itemCount ?></p>
 		<p>Cart number: <?php echo $cartNum ?></p>
 		<p>Product number: <?php echo $prodNum ?></p>
+		<p><?php echo $orderSuccess ?></p>
+		<p><?php echo $cartSuccess ?></p>
 
 	</div>
 
