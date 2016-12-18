@@ -69,7 +69,7 @@
 	<!--BODY-->
 	<div class="mainbody">
 
-	    Welcome, <?php echo $login_session; ?>! <br>
+	    Welcome, <?php echo $userID; ?>! <br>
 		
 		<form action="cart.php" method="post">
             <button type="submit" formaction="profile.php">View Profile</button>
