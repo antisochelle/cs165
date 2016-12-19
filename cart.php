@@ -75,6 +75,7 @@
 	    <p><strong>Order history:</strong></p>
 	    <table>
 	    	<tr>
+	            <th>Order Number</th>
 				<th>Product Name</th>
 				<th>Description</th>
 				<th>Price</th>
@@ -84,7 +85,7 @@
 		
 	    <?php 
 	        # Query for order history
-			$query = "SELECT productName, productDescription, productPrice, orderQuantity, orderDate FROM Products, Orders WHERE Orders.productNumber=Products.productNumber AND Orders.cartNumber IN (SELECT cartNumber FROM Carts WHERE userID='$userID') AND Orders.orderStatus='OK'";
+			$query = "SELECT orderNumber, productName, productDescription, productPrice, orderQuantity, orderDate FROM Products, Orders WHERE Orders.productNumber=Products.productNumber AND Orders.cartNumber IN (SELECT cartNumber FROM Carts WHERE userID='$userID') AND Orders.orderStatus='OK'";
 			$result = pg_query($pg_conn, $query);
 			if ($result){
 			    
@@ -95,6 +96,11 @@
 			    while ($row = pg_fetch_row($result)) {
 			        echo "<tr>";
 			        echo "<td>$row[0]</td>\n";
+			        echo "<td>$row[1]</td>\n";
+			        echo "<td>$row[2]</td>\n";
+			        echo "<td>$row[3]</td>\n";
+			        echo "<td>$row[4]</td>\n";
+			        echo "<td>$row[5]</td>\n";
 			        echo "</tr>";
 			    }       
 			    
