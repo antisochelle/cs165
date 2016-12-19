@@ -138,6 +138,8 @@
             		if ($userType="admin"){
             			# Be able to post info on products
             			echo "<button type=\"submit\" formaction=\"products.php\">Add Product</button>\n";
+            		} else {
+            			echo "$userType";
             		}
             	}
             	
