@@ -20,7 +20,8 @@
 		    $newName = 	$_SESSION['userName'];
 		} 
 		if ($newAddress = ""){
-		    $newAddress = $_SESSION['userAdd'];
+		    $newAddress = "DI MO BINAGO WTF";
+		    
 		}
 		
 		# Query the update
