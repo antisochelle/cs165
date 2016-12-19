@@ -17,10 +17,10 @@
 		
 		# Make sure inputs are valid/if blank input, do not change
 		if (empty($newName)){
-		    $newName = 	$_SESSION['userName'];
+		    $newName = $_SESSION['userName'];
 		} 
 		if (empty($newAddress)){
-		    $newAddress = $_SESSION['userName'];
+		    $newAddress = $_SESSION['userAddress'];
 		}
 		
 		# Query the update
