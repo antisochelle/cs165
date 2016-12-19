@@ -8,6 +8,23 @@
 	# Get userID
 	$userID = $_SESSION['login_user'];
 	
+	# If item is deleted from cart
+	if ($_SERVER["REQUEST_METHOD"] == "POST"){
+		
+		# Get orderNum to be deleted
+		$orderNum = $_POST['orderNum'];
+		
+		# Delete order from DB
+		$query = "DELETE FROM Orders WHERE orderNumber=$orderNum";
+		$result = pg_query($pg_conn, $query);
+		
+		if ($result){
+			$deleteSuccess = "Item removed from cart!";
+		} else {
+			$deleteSuccess = "Item not removed from cart!";
+		}
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -95,13 +112,20 @@
 			    
 			    # Print order history in table
 			    while ($row = pg_fetch_row($result)) { ?>
+			    	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 			        <tr>
-			        <td><?php echo $row[0]; ?></td>
-			        <td><?php echo $row[1]; ?></td>
-			        <td><?php echo $row[2]; ?></td>
-			        <td><?php echo $row[3]; ?></td>
-			        <td><?php echo $row[4]; ?></td>
+			        	<!-- Added a hidden input type to get orderNum -->
+				        <td><?php echo "<input type=\"hidden\" name=\"orderNum\" value=\"".$row[0]."\">"; echo $row[0]; ?></td>
+				        <td><?php echo $row[1]; ?></td>
+				        <td><?php echo $row[2]; ?></td>
+				        <td><?php echo $row[3]; ?></td>
+				        <td><?php echo $row[4]; ?></td>
+				        
+				        <td><input type="submit" value="UPDATE" formaction="update.php"></td>
+				        <td><input type="submit" value="DELETE"></td>
+			        
 			        </tr>
+			        </form>
 			    <?php }       
 			    
 			} else {
@@ -110,7 +134,14 @@
 			
 	    ?>
 	    </table>
+	    
+	    <hr>
 	   
+		<form action="login.php" method="post">
+		    <button type="submit">BACK</button> 
+		</form>
+		
+		<p><?php echo $deleteSuccess ?></p>
 	
 	</div>
 
