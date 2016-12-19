@@ -17,7 +17,7 @@
 	# Insert in Orders after clicking "Add to cart"
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		
-		# Get quantity added to cart itemCount
+		# Get quantity added to cart (itemCount)
 		$itemCount = $_SESSION['itemCount'] + $_POST['quantity'];
 		$_SESSION['itemCount'] = $itemCount;
 		

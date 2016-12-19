@@ -19,6 +19,7 @@
 		$result = pg_query($pg_conn, $query);
 		
 		if ($result){
+			$_SESSION['itemCount'] = $_SESSION['itemCount'] - 1;
 			$deleteSuccess = "Item removed from cart!";
 		} else {
 			$deleteSuccess = "Item not removed from cart!";
