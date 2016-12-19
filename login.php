@@ -31,7 +31,6 @@
 		while ($row = pg_fetch_row($result)){
 			$orderNum = $row[0] + 1;
 		}
-		$_SESSION['orderNum'] = $orderNum;
 		
 		# Set order details (orderNum, cartNum, prodNum, itemCount AS orderQuantity, orderStatus, orderDate -- do this directly in query using now())
 		$orderStatus = "NOT OK";
@@ -40,6 +39,7 @@
 		$query = "INSERT INTO Orders (orderNumber, cartNumber, productNumber, orderQuantity, orderStatus, orderDate) VALUES ($orderNum,$cartNum,$prodNum,$itemCount,'$orderStatus',now());";
 		if (pg_query($pg_conn, $query)){
 			$orderSuccess = "Added order!";
+			
 		} else {
 			$orderSuccess = "Error! Order not added!";
 		}

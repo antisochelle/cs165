@@ -98,6 +98,8 @@
     			        <td><?php echo $row[4]; ?></td>
                     </tr>
 				<?php }
+			} else {
+			    print "<p>ERROR</p>\n";
 			}
 			
 	    ?>
