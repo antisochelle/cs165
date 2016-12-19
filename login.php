@@ -1,6 +1,7 @@
 <?php
 	include("session.php");
 
+	# Get userID
 	$userID = $_SESSION['login_user'];
 
 	# Get cartNumber

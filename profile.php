@@ -1,3 +1,14 @@
+<?php
+	# Include connection to DB
+	include('config.php');
+
+	# Session
+	session_start();
+	
+	# Get userID
+	$userID = $_SESSION['login_user'];
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -59,9 +70,19 @@
 
 	<!--BODY-->
 	<div class="mainbody">
-		<p>Username: <?php echo htmlspecialchars($_POST['userID']); ?>.</p>
-		<p>Name: </p>
-		<p>Address: </p><br>
+		
+		<?php
+			# Get user info
+			$query = "SELECT userID, userName, userAddress FROM Users WHERE userID='$userID'";
+			$result = pg_query($pg_conn, $query);
+			$arr = pg_fetch_array($result, NULL, PGSQL_ASSOC);
+			
+			# Echo user info
+			echo "<p>Username: $userID</p>";
+			echo "<p>Name: ".$arr["userName"]."</p>";
+			echo "<p>Address: ".$arr["userAddress"]."</p><br>";
+		
+		?>
 		
 		<form action="editProfile.php" method="get">
             <button type="submit">Edit Profile</button>
