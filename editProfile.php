@@ -19,10 +19,10 @@
 		if ($newName == ""){
 		    $newName = 	$_SESSION['userName'];
 		} 
-		if ($newAddress = ""){
-		    $newAddress = "DI MO BINAGO WTF";
-		} else {
+		if (!$newAddress){
 		    $newAddress = $_POST['newAddress'];
+		} else {
+		    $newAddress = "DI MO BINAGO WTF";
 		}
 		
 		# Query the update
