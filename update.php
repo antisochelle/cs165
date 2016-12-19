@@ -120,7 +120,7 @@
 				        <td><?php echo $row[2]; ?></td>
 				        <td><?php echo $row[3]; ?></td>
 				        
-				        <td><input type="number" name="quantity" min="0" max="<?php echo $row[4]; ?>" value="<?php echo $row[5]; ?>"></td>
+				        <td><input type="number" name="quantity" min="1" max="<?php echo $row[4]; ?>" value="<?php echo $row[5]; ?>"></td>
 			        	<td><input type="submit" value="UPDATE" <?php echo $status; ?>></td>
 			        </tr>
 			        </form>

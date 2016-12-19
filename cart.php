@@ -140,6 +140,7 @@
 	    <hr>
 	   
 		<form action="login.php" method="post">
+			<button type="submit" formaction="submit.php">SUBMIT</button> 
 		    <button type="submit">BACK</button> 
 		</form>
 		
