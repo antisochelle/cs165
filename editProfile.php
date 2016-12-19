@@ -11,17 +11,18 @@
 	# Update user profile
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		
-		# Get newName and newAddress from form
-		$newName = test_input($_POST['newName']);
-		$newAddress = test_input($_POST['newAddress']);
-		
 		# Make sure inputs are valid/if blank input, do not change
-		if (empty($newAddress)){
-		    $newAddress = $_SESSION['userAddress'];
+		if (empty($_POST['newName'])){
+		    $newAddress = $_SESSION['userName'];
+		} else {
+		    $newName = test_input($_POST['newName']);
 		}
-		if (empty($newName)){
-		    $newName = $_SESSION['userName'];
-		} 
+		
+		if (empty($_POST['newAddress'])){
+		    $newAddress = $_SESSION['userAddress'];
+		} else {
+		    $newAddress = test_input($_POST['newAddress']);
+		}
 		
 		# Query the update
 		$query = "UPDATE Users SET userName='$newName', userAddress='$newAddress' WHERE userID='$userID'";
@@ -100,8 +101,8 @@
 	<div class="mainbody">
 		
 	    <form method="post" action="">
-	        <p>New name: <input type="text" name="newName" maxlength="50"></p>
-	        <p>New address: <input type="text" name="newAddress" maxlength="100"></p>
+	        <p>New name: <input type="text" name="newName" maxlength="50" value="<?php echo $_SESSION['userName']; ?>"></p>
+	        <p>New address: <input type="text" name="newAddress" maxlength="100" value="<?php echo $_SESSION['userAddress']; ?>"></p>
 	        <input type="submit" value="UPDATE PROFILE">
 	    </form>
 	
