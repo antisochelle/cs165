@@ -15,6 +15,13 @@
 		$newName = test_input($_POST['newName']);
 		$newAddress = test_input($_POST['newAddress']);
 		
+		# Make sure inputs are valid/if blank input, do not change
+		if ($newName == ""){
+		    $newName = 	$_SESSION['userName'];
+		} if ($newAddress = ""){
+		    $newAddress = $_SESSION['userAdd'];
+		}
+		
 		# Query the update
 		$query = "UPDATE Users SET userName='$newName', userAddress='$newAddress' WHERE userID='$userID'";
 		$result = pg_query($pg_conn, $query);

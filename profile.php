@@ -84,6 +84,11 @@
 				echo "<p>Username: $userID</p>";
 				echo "<p>Name: ".$arr[1]."</p>";
 				echo "<p>Address: ".$arr[2]."</p><br>";
+				
+				# Set session variables
+				$_SESSION['userName'] = $arr[1];
+				$_SESSION['userAdd'] = $arr[2];
+				
 			} else {
 				echo "<p>Doesnt work mamshie!</p>";
 			}
