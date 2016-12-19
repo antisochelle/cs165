@@ -22,7 +22,7 @@
 		if ($newAddress = ""){
 		    $newAddress = "DI MO BINAGO WTF";
 		} else {
-		    $newAddress = "MAMSHIEEEEEE";
+		    $newAddress = $_POST['newAddress'];
 		}
 		
 		# Query the update
