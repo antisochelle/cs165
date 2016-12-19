@@ -1,3 +1,4 @@
+\c classicmodels
 /* Load records into the tables */
 
 /*********************************
@@ -30,6 +31,7 @@ INSERT INTO Products (productNumber, productName, productDescription, productSta
 INSERT INTO Products (productNumber, productName, productDescription, productStatus, productQuantity, productPrice) VALUES (5,'Motivation','Very in demand so order now!','Out of stock',0,25.00);
 
 /* Carts */
+INSERT INTO Carts (cartNumber, userID) VALUES (0, 'admin');
 INSERT INTO Carts (cartNumber, userID) VALUES (1, 'user1');
 INSERT INTO Carts (cartNumber, userID) VALUES (2, 'user2');
 INSERT INTO Carts (cartNumber, userID) VALUES (3, 'user3');

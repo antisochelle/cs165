@@ -1,3 +1,6 @@
+CREATE DATABASE DELAROSA;
+\c DELAROSA
+
 /* Drop existing tables, just to be sure */
 DROP TABLE Users;
 DROP TABLE Products;

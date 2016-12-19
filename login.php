@@ -19,7 +19,6 @@
 		
 		# Get quantity added to cart (itemCount)
 		$itemCount = $_SESSION['itemCount'] + $_POST['quantity'];
-		$_SESSION['itemCount'] = $itemCount;
 		
 		# Get prodNum chosen
 		#$_SESSION['prodNum'] = $_POST['prodNum'];
@@ -40,6 +39,7 @@
 		if (pg_query($pg_conn, $query)){
 			$orderSuccess = "Added order!";
 			$_SESSION['orderNum'] = $orderNum;
+			$_SESSION['itemCount'] = $itemCount;
 		} else {
 			$orderSuccess = "Error! Order not added!";
 		}
