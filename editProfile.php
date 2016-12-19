@@ -16,13 +16,11 @@
 		$newAddress = $_POST['newAddress'];
 		
 		# Make sure inputs are valid/if blank input, do not change
-		if ($newName == ""){
+		if (empty($newName)){
 		    $newName = 	$_SESSION['userName'];
 		} 
 		if (empty($newAddress)){
-		    $newAddress = $_POST['newAddress'];
-		} else {
-		    $newAddress = "DI MO BINAGO WTF";
+		    $newAddress = $_SESSION['userName'];
 		}
 		
 		# Query the update
