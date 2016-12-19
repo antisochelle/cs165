@@ -75,12 +75,17 @@
 			# Get user info
 			$query = "SELECT userID, userName, userAddress FROM Users WHERE userID='$userID'";
 			$result = pg_query($pg_conn, $query);
-			$arr = pg_fetch_array($result, NULL, PGSQL_ASSOC);
+			if ($result){
+				$arr = pg_fetch_array($result, 0, PGSQL_NUM);
+
+				# Echo user info
+				echo "<p>Username: $userID</p>";
+				echo "<p>Name: ".$arr[1]."</p>";
+				echo "<p>Address: ".$arr[2]."</p><br>";
+			} else {
+				echo "<p>Doesnt work mamshie!</p>";
+			}
 			
-			# Echo user info
-			echo "<p>Username: $userID</p>";
-			echo "<p>Name: ".$arr["userName"]."</p>";
-			echo "<p>Address: ".$arr["userAddress"]."</p><br>";
 		
 		?>
 		
