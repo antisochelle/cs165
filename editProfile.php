@@ -101,8 +101,8 @@
 	<div class="mainbody">
 		
 	    <form method="post" action="">
-	        <p>New name: <input type="text" name="newName" maxlength="50" value="<?php echo $_SESSION['userName']; ?>"></p>
-	        <p>New address: <input type="text" name="newAddress" maxlength="100" value="<?php echo $_SESSION['userAddress']; ?>"></p>
+	        <p>New name: <input type="text" name="newName" maxlength="50" placeholder="<?php echo $_SESSION['userName']; ?>"></p>
+	        <p>New address: <input type="text" name="newAddress" maxlength="100" placeholder="<?php echo $_SESSION['userAddress']; ?>"></p>
 	        <input type="submit" value="UPDATE PROFILE">
 	    </form>
 	

@@ -87,7 +87,7 @@
 				
 				# Set session variables
 				$_SESSION['userName'] = $arr[1];
-				$_SESSION['userAdd'] = $arr[2];
+				$_SESSION['userAddress'] = $arr[2];
 				
 			} else {
 				echo "<p>Doesnt work mamshie!</p>";
