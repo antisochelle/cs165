@@ -118,7 +118,10 @@
 	        <p>Product quantity: <input type="number" name="prodQuantity" min="1" value="1" required></p>
 	        <p>Product price: <input type="number" name="prodPrice" min="0" value="10" step="any" required></p>
 	        <input type="submit" value="ADD PRODUCT">
-	        <input type="submit" value="BACK" formaction="login.php">
+	    </form>
+	    
+	    <form method="post" action="login.php">
+	    	<input type="submit" value="BACK">
 	    </form>
 	
 	</div>
