@@ -114,7 +114,7 @@
 	    <form method="post" action="">
 	        <p>Product name: <input type="text" name="prodName" maxlength="50" required></p>
 	        <p>Product description: <textarea name="prodDesc" required></textarea></p>
-	        <p>Product status: <input type="radio" name="prodStatus" value="Available" checked required><input type="radio" name="prodStatus" value="Out of stock" checked></p>
+	        <p>Product status: <input type="radio" name="prodStatus" value="Available" required><input type="radio" name="prodStatus" value="Out of stock" checked></p>
 	        <p>Product quantity: <input type="number" name="prodQuantity" min="1" value="1" required></p>
 	        <p>Product price: <input type="number" name="prodPrice" min="1" value="10" required></p>
 	        <input type="submit" value="ADD PRODUCT">
