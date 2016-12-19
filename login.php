@@ -175,7 +175,6 @@
 		<p>Cart number: <?php echo $cartNum ?></p>
 		<p>Product number: <?php echo $prodNum ?></p>
 		<p><?php echo $orderSuccess ?></p>
-		<p><?php echo $orderNum; echo $_SESSION['orderNum']; ?></p>
 
 	</div>
 
