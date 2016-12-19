@@ -19,9 +19,10 @@
 		
 		# Get quantity added to cart (itemCount)
 		$itemCount = $_SESSION['itemCount'] + $_POST['quantity'];
+		$_SESSION['itemCount'] = $itemCount;
 		
 		# Get prodNum chosen
-		#$_SESSION['prodNum'] = $_POST['prodNum'];
+		$_SESSION['prodNum'] = $_POST['prodNum'];
 		$prodNum = $_POST['prodNum'];
 		
 		# Get orderNum
@@ -29,6 +30,7 @@
 		$result = pg_query($pg_conn, $query);
 		while ($row = pg_fetch_row($result)){
 			$orderNum = $row[0] + 1;
+			$_SESSION['orderNum'] = $orderNum;
 		}
 		
 		# Set order details (orderNum, cartNum, prodNum, itemCount AS orderQuantity, orderStatus, orderDate -- do this directly in query using now())
@@ -38,8 +40,6 @@
 		$query = "INSERT INTO Orders (orderNumber, cartNumber, productNumber, orderQuantity, orderStatus, orderDate) VALUES ($orderNum,$cartNum,$prodNum,$itemCount,'$orderStatus',now());";
 		if (pg_query($pg_conn, $query)){
 			$orderSuccess = "Added order!";
-			$_SESSION['orderNum'] = $orderNum;
-			$_SESSION['itemCount'] = $itemCount;
 		} else {
 			$orderSuccess = "Error! Order not added!";
 		}
