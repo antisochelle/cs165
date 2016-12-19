@@ -71,6 +71,8 @@
 	<!--BODY-->
 	<div class="mainbody">
 		
+		<p><strong><?php echo $_SESSION['updateProfile']; ?></strong></p>
+		
 		<?php
 			# Get user info
 			$query = "SELECT userID, userName, userAddress FROM Users WHERE userID='$userID'";

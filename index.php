@@ -34,13 +34,8 @@
 	$row = pg_num_rows($result);
 	$_SESSION['itemCount'] = $row;
 
-	# Getting clean inputs
-	function test_input($data) {
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
-	}
+	# Where function test_input used to belong
+	
 ?>
 
 <!DOCTYPE html>

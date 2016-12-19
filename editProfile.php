@@ -7,6 +7,26 @@
 	
 	# Get userID
 	$userID = $_SESSION['login_user'];
+	
+	# Update user profile
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		
+		# Get newName and newAddress from form
+		$newName = test_input($_POST['newName']);
+		$newAddress = test_input($_POST['newAddress']);
+		
+		# Query the update
+		$query = "UPDATE Users SET userName='$newName', userAddress='$newAddress' WHERE userID='$userID'";
+		$result = pg_query($pg_conn, $query);
+		if ($result){
+		    $_SESSION['updateProfile'] = "Update profile success!";
+		} else {
+		    $_SESSION['updateProfile'] = "ERROR updating profile!";
+		}
+		header("location:profile.php");
+		
+	}
+	
 ?>
 
 <!DOCTYPE html>

@@ -8,4 +8,14 @@
 	
 	# Establish connection
 	$pg_conn = pg_connect(pg_connection_string_from_database_url());
+	
+	
+	# Function for cleaning input
+	function test_input($data) {
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
+	
 ?>
