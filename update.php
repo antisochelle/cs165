@@ -8,22 +8,21 @@
 	# Get userID
 	$userID = $_SESSION['login_user'];
 	
-	# If item is deleted from cart
+	# Update item quantity
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		
-		# Get orderNum to be deleted
+		# Query the update
 		$orderNum = $_POST['orderNum'];
+		$orderQuantity = $_POST['quantity'];
 		
-		# Delete order from DB
-		$query = "DELETE FROM Orders WHERE orderNumber=$orderNum";
+		$query = "UPDATE Orders SET orderQuantity=$orderQuantity WHERE orderNumber=$orderNum";
 		$result = pg_query($pg_conn, $query);
-		
 		if ($result){
-			$_SESSION['itemCount'] = $_SESSION['itemCount'] - 1;
-			$deleteSuccess = "Item removed from cart!";
+			header("location:cart.php");
 		} else {
-			$deleteSuccess = "Item not removed from cart!";
+			$error = "UPDATE FAILED!";
 		}
+		
 	}
 	
 ?>
@@ -106,32 +105,27 @@
 		
 	    <?php 
 	        # Query for order history
-			$query = "SELECT orderNumber, productName, productDescription, productPrice, orderQuantity FROM Products, Orders WHERE Orders.productNumber = Products.productNumber AND Orders.cartNumber IN (SELECT cartNumber FROM Carts WHERE userID='$userID') AND Orders.orderStatus='NOT OK';";
+			$query = "SELECT orderNumber, productName, productDescription, productPrice, productQuantity, orderQuantity FROM Products, Orders WHERE Orders.productNumber = Products.productNumber AND Orders.cartNumber IN (SELECT cartNumber FROM Carts WHERE userID='$userID') AND Orders.orderStatus='NOT OK';";
 			$result = pg_query($pg_conn, $query);
 			$count = pg_num_rows($result);
 			if ($result and ($count > 0)){
 			    
 			    # Print order history in table
 			    while ($row = pg_fetch_row($result)) { ?>
-			    	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			    	<form method="post" action="">
 			        <tr>
 			        	<!-- Added a hidden input type to get orderNum -->
 				        <td><?php echo "<input type=\"hidden\" name=\"orderNum\" value=\"".$row[0]."\">"; echo $row[0]; ?></td>
 				        <td><?php echo $row[1]; ?></td>
 				        <td><?php echo $row[2]; ?></td>
 				        <td><?php echo $row[3]; ?></td>
-				        <td><?php echo $row[4]; ?></td>
 				        
-				        <td><input type="submit" value="UPDATE" formaction="update.php"></td>
-				        <td><input type="submit" value="DELETE"></td>
-				        
-			        
+				        <td><input type="number" name="quantity" min="0" max="<?php echo $row[4]; ?>" value="<?php echo $row[5]; ?>"></td>
+			        	<td><input type="submit" value="UPDATE" <?php echo $status; ?>></td>
 			        </tr>
 			        </form>
 			    <?php }       
 			    
-			} else {
-			    print "<p>No items in cart yet!</p>";
 			}
 			
 	    ?>
@@ -139,11 +133,11 @@
 	    
 	    <hr>
 	   
-		<form action="login.php" method="post">
+		<form action="cart.php" method="post">
 		    <button type="submit">BACK</button> 
 		</form>
 		
-		<p><?php echo $deleteSuccess ?></p>
+		<p><?php echo $error ?></p>
 	
 	</div>
 

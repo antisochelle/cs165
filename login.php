@@ -172,7 +172,7 @@
 	
 		<hr>
 
-		<p style="margin-top: 10px;"><strong>Items in cart:</strong> <?php echo $itemCount ?></p>
+		<p style="margin-top: 10px;"><strong>Items ordered:</strong> <?php echo $itemCount ?></p>
 		<p>Cart number: <?php echo $cartNum ?></p>
 		<p>Product number: <?php echo $prodNum ?></p>
 		<p><?php echo $orderSuccess ?></p>
