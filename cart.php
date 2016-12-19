@@ -89,15 +89,9 @@
 			if ($result){
 			    
 			    # Print order history in table
-				while ($row = pg_fetch_row($results)){ ?>
-		            <tr>
-                        <td><?php echo $row[0]; ?></td>
-    			        <td><?php echo $row[1]; ?></td>
-    			        <td><?php echo $row[2]; ?></td>
-    			        <td><?php echo $row[3]; ?></td>
-    			        <td><?php echo $row[4]; ?></td>
-                    </tr>
-				<?php }
+			    print "<tr><td>MAMSHIE</td></tr>";
+			    # WHERE loop here
+			    
 			} else {
 			    print "<p>ERROR</p>\n";
 			}
