@@ -16,12 +16,12 @@
 		$newAddress = $_POST['newAddress'];
 		
 		# Make sure inputs are valid/if blank input, do not change
-		if (empty($newName)){
-		    $newName = $_SESSION['userName'];
-		} 
 		if (empty($newAddress)){
 		    $newAddress = $_SESSION['userAddress'];
 		}
+		if (empty($newName)){
+		    $newName = $_SESSION['userName'];
+		} 
 		
 		# Query the update
 		$query = "UPDATE Users SET userName='$newName', userAddress='$newAddress' WHERE userID='$userID'";
