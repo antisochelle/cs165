@@ -12,6 +12,7 @@
 	$result = pg_query($pg_conn, $query);
 	if ($result){
 	   
+	   $_SESSION['itemCount'] = 0;
 	   # Update productQuantity (productQuantity minus orderQuantity)
 	   
 	   # Go back to cart
