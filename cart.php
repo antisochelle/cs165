@@ -55,6 +55,10 @@
 		margin-left: 50px;
 		margin-top: 100px;
 	}
+	
+	th, td {
+    	padding: 10px;
+	}
 
 </style>
 
@@ -87,25 +91,23 @@
 	        # Query for order history
 			$query = "SELECT orderNumber, productName, productDescription, productPrice, orderQuantity, orderDate FROM Products, Orders WHERE Orders.productNumber=Products.productNumber AND Orders.cartNumber IN (SELECT cartNumber FROM Carts WHERE userID='$userID') AND Orders.orderStatus='OK'";
 			$result = pg_query($pg_conn, $query);
-			if ($result){
+			$count = pg_num_rows($result);
+			if ($result and ($count > 0)){
 			    
 			    # Print order history in table
-			    print "<tr><td>MAMSHIE</td></tr>";
-			  
-			    # WHERE loop here
-			    while ($row = pg_fetch_row($result)) {
-			        echo "<tr>";
-			        echo "<td>$row[0]</td>\n";
-			        echo "<td>$row[1]</td>\n";
-			        echo "<td>$row[2]</td>\n";
-			        echo "<td>$row[3]</td>\n";
-			        echo "<td>$row[4]</td>\n";
-			        echo "<td>$row[5]</td>\n";
-			        echo "</tr>";
-			    }       
+			    while ($row = pg_fetch_row($result)) { ?>
+			        <tr>
+			        <td><?php echo $row[0]; ?></td>
+			        <td><?php echo $row[1]; ?></td>
+			        <td><?php echo $row[2]; ?></td>
+			        <td><?php echo $row[3]; ?></td>
+			        <td><?php echo $row[4]; ?></td>
+			        <td><?php echo $row[5]; ?></td>
+			        </tr>
+			    <?php }       
 			    
 			} else {
-			    print "<p>ERROR</p>\n";
+			    print "<p>No orders yet!</p>";
 			}
 			
 	    ?>
