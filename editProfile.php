@@ -12,8 +12,8 @@
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		
 		# Get newName and newAddress from form
-		$newName = test_input($_POST['newName']);
-		$newAddress = test_input($_POST['newAddress']);
+		$newName = $_POST['newName'];
+		$newAddress = $_POST['newAddress'];
 		
 		# Make sure inputs are valid/if blank input, do not change
 		if ($newName == ""){
