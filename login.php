@@ -135,7 +135,7 @@
             		$userType = $arr[0];
             		
             		# Check if admin
-            		if ($userType="admin"){
+            		if ($userType=="admin"){
             			# Be able to post info on products
             			echo "<button type=\"submit\" formaction=\"products.php\">Add Product</button>\n";
             		} else {
@@ -196,7 +196,7 @@
 		<p>Cart number: <?php echo $cartNum ?></p>
 		<p>Product number: <?php echo $prodNum ?></p>
 		<p><?php echo $orderSuccess ?></p>
-		<p><?php echo "$userType"; ?></p>
+		<p><?php echo $userType; ?></p>
 		
 		<?php
 			# Reset itemCount to 0
