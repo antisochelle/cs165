@@ -25,6 +25,7 @@
 			header("location:login.php");
 		} else {
 			$error = "<p>INVALID USERNAME OR PASSWORD BESHIE!</p>";
+			header("location:index.php");
 		}
 	}
 	
@@ -98,6 +99,10 @@
 		margin-left: 50px;
 		margin-top: 100px;
 	}
+	
+	th, td {
+    	padding: 10px;
+	}
 
 </style>
 
@@ -153,8 +158,6 @@
 		
 		<p>Thankies, besh!</p>
 		<p style="color:grey;">Michelle.</p>
-		
-		<?php echo $error; ?>
 		
 	</div>
 	
