@@ -72,10 +72,8 @@
 	<div class="mainbody">
 		
 	    <form method="post" action="">
-	        <p>New name:</p>
-	        <input type="text" name="newName" maxlength="50"><br>
-	        <p>New address:</p>
-	        <input type="text" name="newAddress" maxlength="100"><br>
+	        <p>New name: <input type="text" name="newName" maxlength="50"></p>
+	        <p>New address: <input type="text" name="newAddress" maxlength="100"></p>
 	        <input type="submit" value="UPDATE PROFILE">
 	    </form>
 	
