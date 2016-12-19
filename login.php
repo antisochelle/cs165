@@ -39,7 +39,7 @@
 		$query = "INSERT INTO Orders (orderNumber, cartNumber, productNumber, orderQuantity, orderStatus, orderDate) VALUES ($orderNum,$cartNum,$prodNum,$itemCount,'$orderStatus',now());";
 		if (pg_query($pg_conn, $query)){
 			$orderSuccess = "Added order!";
-			
+			$_SESSION['orderNum'] = $orderNum;
 		} else {
 			$orderSuccess = "Error! Order not added!";
 		}
@@ -122,7 +122,7 @@
 		
 		<form action="cart.php" method="post">
             <button type="submit" formaction="profile.php">View Profile</button>
-            <button type="submit">View Order History</button>
+            <button type="submit" formaction="orders.php">View Order History</button>
             <button type="submit">View My Cart</button> 
         </form>
 		
@@ -131,9 +131,9 @@
 			<tr>
 				<th>Product Name</th>
 				<th>Description</th>
-				<th>Price</th>
 				<th>Status</th>
 				<th>In Stock</th>
+				<th>Price</th>
 			</tr>
 			
 			<?php
