@@ -175,6 +175,11 @@
 		<p>Cart number: <?php echo $cartNum ?></p>
 		<p>Product number: <?php echo $prodNum ?></p>
 		<p><?php echo $orderSuccess ?></p>
+		
+		<?php
+			# Reset itemCount to 0
+			$itemCount = 0;
+		?>
 
 	</div>
 
