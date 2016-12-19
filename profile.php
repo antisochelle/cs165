@@ -81,9 +81,9 @@
 				$arr = pg_fetch_array($result, 0, PGSQL_NUM);
 
 				# Echo user info
-				echo "<p>Username: $userID</p>";
-				echo "<p>Name: ".$arr[1]."</p>";
-				echo "<p>Address: ".$arr[2]."</p><br>";
+				echo "<p>Username: $userID</p>\n";
+				echo "<p>Name: ".$arr[1]."</p>\n";
+				echo "<p>Address: ".$arr[2]."</p>\n";
 				
 				# Set session variables
 				$_SESSION['userName'] = $arr[1];
@@ -100,7 +100,7 @@
 			if ($result){
 				
 				# Show order history (orderStatus='OK')
-				echo "<p><strong>Order history:</strong></p>\n";
+				echo "<hr><p><strong>Order history:</strong></p>\n";
 				echo "<ul>\n";
 				if ($row = pg_num_rows($result) > 0){
 					while ($row = pg_fetch_row($result)){
