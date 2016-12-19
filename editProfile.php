@@ -13,7 +13,7 @@
 		
 		# Make sure inputs are valid/if blank input, do not change
 		if (empty($_POST['newName'])){
-		    $newAddress = $_SESSION['userName'];
+		    $newName = $_SESSION['userName'];
 		} else {
 		    $newName = test_input($_POST['newName']);
 		}
