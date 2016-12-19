@@ -18,7 +18,8 @@
 		# Make sure inputs are valid/if blank input, do not change
 		if ($newName == ""){
 		    $newName = 	$_SESSION['userName'];
-		} if ($newAddress = ""){
+		} 
+		if ($newAddress = ""){
 		    $newAddress = $_SESSION['userAdd'];
 		}
 		
