@@ -91,13 +91,11 @@
 			    # Print order history in table
 				while ($row = pg_fetch_row($results)){ ?>
 		            <tr>
-				       <?php 
-				        print  "<td>$row[0]</td>\n
-        				        <td>$row[1]</td>\n
-        				        <td>$row[2]</td>\n
-        				        <td>$row[3]</td>\n
-        				        <td>$row[4]</td>\n";
-				        ?>
+                        <td><?php echo $row[0]; ?></td>
+    			        <td><?php echo $row[1]; ?></td>
+    			        <td><?php echo $row[2]; ?></td>
+    			        <td><?php echo $row[3]; ?></td>
+    			        <td><?php echo $row[4]; ?></td>
                     </tr>
 				<?php }
 			}
