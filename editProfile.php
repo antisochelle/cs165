@@ -21,7 +21,8 @@
 		} 
 		if ($newAddress = ""){
 		    $newAddress = "DI MO BINAGO WTF";
-		    
+		} else {
+		    $newAddress = "MAMSHIEEEEEE";
 		}
 		
 		# Query the update
