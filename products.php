@@ -116,7 +116,7 @@
 	        <p>Product description: <textarea name="prodDesc" required></textarea></p>
 	        <p>Product status: <input type="radio" name="prodStatus" value="Available" checked>Available<input type="radio" name="prodStatus" value="Out of stock">Out of stock</p>
 	        <p>Product quantity: <input type="number" name="prodQuantity" min="1" value="1" required></p>
-	        <p>Product price: <input type="number" name="prodPrice" min="1" value="10" step="any" required></p>
+	        <p>Product price: <input type="number" name="prodPrice" min="0" value="10" step="any" required></p>
 	        <input type="submit" value="ADD PRODUCT">
 	        <input type="submit" value="BACK" formaction="login.php">
 	    </form>

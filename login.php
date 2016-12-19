@@ -171,7 +171,7 @@
 					<?php
 						# Disable "Add to cart" feature if "out of stock"
 						$status = ""; 
-						if ($row[4] == 0){
+						if ($row[4] == 0 or $row[3] == "Out of stock"){
 							$status = "disabled";
 						}
 					?>
