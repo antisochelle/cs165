@@ -19,7 +19,7 @@
 		if ($newName == ""){
 		    $newName = 	$_SESSION['userName'];
 		} 
-		if (!$newAddress){
+		if (empty($newAddress)){
 		    $newAddress = $_POST['newAddress'];
 		} else {
 		    $newAddress = "DI MO BINAGO WTF";
