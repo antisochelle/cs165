@@ -84,13 +84,19 @@
 		
 	    <?php 
 	        # Query for order history
-			$query = "SELECT productName, productDescription, productPrice, orderQuantity, orderDate FROM Products, Orders WHERE Orders.productNumber=Products.productNumber AND Orders.cartNumber IN (SELECT cartNumber FROM Carts WHERE userID='$userID') AND Orders.orderStatus='OK';";
+			$query = "SELECT productName, productDescription, productPrice, orderQuantity, orderDate FROM Products, Orders WHERE Orders.productNumber=Products.productNumber AND Orders.cartNumber IN (SELECT cartNumber FROM Carts WHERE userID='$userID') AND Orders.orderStatus='OK'";
 			$result = pg_query($pg_conn, $query);
 			if ($result){
 			    
 			    # Print order history in table
 			    print "<tr><td>MAMSHIE</td></tr>";
+			  
 			    # WHERE loop here
+			    while ($row = pg_fetch_row($result)) {
+			        echo "<tr>";
+			        echo "<td>$row[0]</td>\n";
+			        echo "</tr>";
+			    }       
 			    
 			} else {
 			    print "<p>ERROR</p>\n";
