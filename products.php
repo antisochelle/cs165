@@ -32,10 +32,10 @@
 		$prodPrice = $_POST['prodPrice'];
 		
 		# Insert into products table
-		$query = "INSERT INTO Products (productNumber, productName, productDescription, productStatus, productQuantity, productPrice) VALUES ($prodNum, '$prodName', '$prodDesc', '$prodStatus', $prodQuantity, $prodPrice);";
+		$query = "INSERT INTO Products (productNumber, productName, productDescription, productStatus, productQuantity, productPrice) VALUES ($prodNum, '$prodName', '$prodDesc', '$prodStatus', $prodQuantity, $prodPrice::float8::numeric::money);";
 		$result = pg_query($pg_conn, $query);
 		if ($result){
-			header("location:cart.php");
+			header("location:login.php");
 		} else {
 			echo "ERROR ADDING PRODUCT HUHU SORRY";
 		}
@@ -99,7 +99,7 @@
 	
 	<!--HEADER-->
 	<div class="top" style="position: fixed; top: 0px; left: 0px; right: 0px;">
-		<a href="https://cs165.herokuapp.com/" class="logo">B E S H I E</a>
+		<a href="https://cs165.herokuapp.com/login.php" class="logo">B E S H I E</a>
 		<form action="index.php" method="post" class="submit" style="margin-top: 4px;">
           <button type="submit" class="submit">LOG OUT</button>
         </form>
@@ -116,8 +116,9 @@
 	        <p>Product description: <textarea name="prodDesc" required></textarea></p>
 	        <p>Product status: <input type="radio" name="prodStatus" value="Available" checked>Available<input type="radio" name="prodStatus" value="Out of stock">Out of stock</p>
 	        <p>Product quantity: <input type="number" name="prodQuantity" min="1" value="1" required></p>
-	        <p>Product price: <input type="number" name="prodPrice" min="1" value="10" required></p>
+	        <p>Product price: <input type="number" name="prodPrice" min="1" value="10" step="any" required></p>
 	        <input type="submit" value="ADD PRODUCT">
+	        <input type="submit" value="BACK" formaction="login.php">
 	    </form>
 	
 	</div>
