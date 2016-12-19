@@ -26,7 +26,7 @@
 		$prodNum = $_POST['prodNum'];
 		
 		# Get orderNum
-		$query = "SELECT COUNT(*) FROM Orders";
+		$query = "SELECT orderNumber FROM Orders";
 		$result = pg_query($pg_conn, $query);
 		while ($row = pg_fetch_row($result)){
 			$orderNum = $row[0] + 1;
@@ -175,7 +175,7 @@
 		<p>Cart number: <?php echo $cartNum ?></p>
 		<p>Product number: <?php echo $prodNum ?></p>
 		<p><?php echo $orderSuccess ?></p>
-		<p><?php echo $orderNum ?></p>
+		<p><?php echo $orderNum; echo $_SESSION['orderNum']; ?></p>
 
 	</div>
 
