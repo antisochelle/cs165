@@ -32,7 +32,7 @@
 		$prodPrice = $_POST['prodPrice'];
 		
 		# Insert into products table
-		$query = "INSERT INTO Products (productNumber, productName, productDescription, productStatus, productQuantity, productPrice) VALUES ($prodNum, $prodName, $prodDesc, $prodStatus, $prodQuantity, $prodPrice);";
+		$query = "INSERT INTO Products (productNumber, productName, productDescription, productStatus, productQuantity, productPrice) VALUES ($prodNum, '$prodName', '$prodDesc', '$prodStatus', $prodQuantity, $prodPrice);";
 		$result = pg_query($pg_conn, $query);
 		if ($result){
 			header("location:cart.php");
