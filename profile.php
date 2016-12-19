@@ -93,6 +93,24 @@
 				echo "<p>Doesnt work mamshie!</p>";
 			}
 			
+			
+			# Query for order history
+			$query = "SELECT productName FROM Products WHERE productNumber IN (SELECT productNumber FROM Orders WHERE orderStatus='OK' AND cartNumber IN (SELECT cartNumber FROM Carts WHERE userID='$userID'));";
+			$result = pg_query($pg_conn, $query);
+			if ($result){
+				
+				# Show order history (orderStatus='OK')
+				echo "<p><strong>Order history:</strong></p>\n";
+				echo "<ul>\n";
+				if ($row = pg_num_rows($result) > 0){
+					while ($row = pg_fetch_row($result)){
+						echo "<li>$row[0]</li>\n";
+					}
+				} else {
+					echo "<li>None</li>\n";
+				}
+				echo "</ul>\n";
+			}
 		
 		?>
 		
