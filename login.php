@@ -125,6 +125,24 @@
             <button type="submit" formaction="profile.php">View Profile</button>
             <button type="submit" formaction="orders.php">View Order History</button>
             <button type="submit">View My Cart</button> 
+            
+            <?php
+            	# Get userType
+            	$query = "SELECT userType FROM Users WHERE userID='$userID'";
+            	$result = pg_query($pg_conn, $query);
+            	if ($result){
+            		$arr = pg_fetch_array($result, 0, PGSQL_NUM);
+            		$userType = $arr[0];
+            		
+            		# Check if admin
+            		if ($userType="admin"){
+            			# Be able to post info on products
+            			echo "<button type=\"submit\" formaction=\"products.php\">Add Product</button>\n";
+            		}
+            	}
+            	
+            ?>
+            
         </form>
 		
 		<br>
