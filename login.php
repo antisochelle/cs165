@@ -22,8 +22,8 @@
 		$_SESSION['itemCount'] = $itemCount;
 		
 		# Get prodNum chosen
-		$_SESSION['prodNum'] = $_POST['prodNum'];
-		$prodNum = $_SESSION['prodNum'];
+		#$_SESSION['prodNum'] = $_POST['prodNum'];
+		$prodNum = $_POST['prodNum'];
 		
 		# Get orderNum
 		$query = "SELECT COUNT(*) FROM Orders";
