@@ -18,6 +18,7 @@
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		
 		# Get quantity added to cart (itemCount)
+		$orderQuantity = $_POST['quantity'];
 		$itemCount = $_SESSION['itemCount'] + $_POST['quantity'];
 		$_SESSION['itemCount'] = $itemCount;
 		
@@ -37,7 +38,7 @@
 		$orderStatus = "NOT OK";
 		
 		# INSERTING INTO ORDERS
-		$query = "INSERT INTO Orders (orderNumber, cartNumber, productNumber, orderQuantity, orderStatus, orderDate) VALUES ($orderNum,$cartNum,$prodNum,$itemCount,'$orderStatus',now());";
+		$query = "INSERT INTO Orders (orderNumber, cartNumber, productNumber, orderQuantity, orderStatus, orderDate) VALUES ($orderNum,$cartNum,$prodNum,$orderQuantity,'$orderStatus',now());";
 		if (pg_query($pg_conn, $query)){
 			$orderSuccess = "Added order!";
 		} else {
