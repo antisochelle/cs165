@@ -23,9 +23,6 @@
 			
 			# Create header to redirect if successful!
 			header("location:login.php");
-		} else {
-			$error = "<p>INVALID USERNAME OR PASSWORD BESHIE!</p>";
-			header("location:index.php");
 		}
 	}
 	
