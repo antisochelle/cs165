@@ -11,10 +11,14 @@
 	# Get new productNumber
 	$query = "SELECT productNumber FROM Products";
 	$result = pg_query($pg_conn, $query);
+	$prodNum = 0;
 	if ($result){
 		while ($row = pg_fetch_row($result)){
-			$prodNum = $row[0] + 1;
+			if ($row[0] >= $prodNum){
+				$prodNum = $row[0];
+			}
 		}
+		$prodNum = $prodNum + 1;
 	}
 	
 	# Set variables

@@ -29,10 +29,14 @@
 		# Get orderNum
 		$query = "SELECT orderNumber FROM Orders";
 		$result = pg_query($pg_conn, $query);
+		$orderNum = 0;
 		while ($row = pg_fetch_row($result)){
-			$orderNum = $row[0] + 1;
-			$_SESSION['orderNum'] = $orderNum;
+			if ($row[0] >= $orderNum){
+				$orderNum = $row[0];
+			}
 		}
+		$orderNum = $orderNum + 1;
+		$_SESSION['orderNum'] = $orderNum;
 		
 		# Set order details (orderNum, cartNum, prodNum, itemCount AS orderQuantity, orderStatus, orderDate -- do this directly in query using now())
 		$orderStatus = "NOT OK";
